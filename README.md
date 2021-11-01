@@ -2,7 +2,7 @@
 
 Kollaboration mit AIFB
 
-## Meeting 02.11.21 ? ##
+## Meeting 01.11.21 ##
 
 ## Meeting 25.10.21 ##
 
@@ -22,11 +22,11 @@ Kollaboration mit AIFB
 	- for medical DP tools
 	- for second use case DP tools
 	- for both
-
+	<br />
 2. Compare/map to classic/typical privacy and security requirements
 
 3. Look at as many different DLTs as possible
 	- private/public
 	- permissioned/permissionless
-
+	<br />
 4. Mapping results from 2. to DLT characteristics and capabilities from 3.
