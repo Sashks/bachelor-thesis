@@ -4,6 +4,18 @@ Kollaboration mit AIFB
 
 ## Meeting 01.11.21 ##
 
+1. References
+
+2. Describe DP in our case
+
+3. Stay away from Usage Control, Privacy, Security, anything outside of provenance
+
+4. Separate requirements in important/unimportant in terms of our use case
+
+5. Define Roles - Data Subject, Data Sender/Reciever, Type of Data, Transmiting priciple
+
+6. Find financial literature
+
 ## Meeting 25.10.21 ##
 
 0. Finance > Social
