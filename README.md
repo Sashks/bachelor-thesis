@@ -11,9 +11,11 @@ Kollaboration mit AIFB
 
 2. Make bigger destinction between individual medical/financial requirements
 
-3. Medical/Financial use case: differences and similarities
+3. Add references in requirements. 
 
-4. Hyperledger/Ethereum statements in regard to the medical/financial requirements.
+4. Medical/Financial use case: differences and similarities
+
+5. Hyperledger/Ethereum statements in regard to the medical/financial requirements.
 
 ## Meeting 01.11.21 ##
 
