@@ -2,6 +2,25 @@
 
 Kollaboration mit AIFB
 
+## Meeting 15.11.21 ##
+
+1. Explain how the groups were formed
+
+2. Use-Case-Tables: mark which sentances correspond to which requirement 
+
+3. Draw the links between Req-Table and Healthcare/Finance
+
+4. Describe in which requirements finance and healthcare differ and which ones apply to both
+
+5. Draw the link between Req-Table and Hyperledger/Ethereum
+
+6. Describe which requirements Hyperledger and Ethereum fulfil
+
+7. Describe only the useful DLT characteristics and properties
+
+8. Think about the trade-offs 
+
+
 ## Meeting 08.11.21 ##
 
 0. Working Definition of DP 1-2 sentences
@@ -13,7 +32,11 @@ Kollaboration mit AIFB
 
 3. Add references in requirements. 
 
-4. Medical/Financial use case: differences and similarities
+4. Medical/Financial use case: differences and similarities 
+	- anonymity
+	- target of abuse
+	- accessibility
+	- avail - emergency
 
 5. Hyperledger/Ethereum statements in regard to the medical/financial requirements.
 
