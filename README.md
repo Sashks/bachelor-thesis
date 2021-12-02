@@ -2,6 +2,16 @@
 
 Kollaboration mit AIFB
 
+## Meeting 22.11.21 ##
+
+1. Tables in 3.1 not necessary
+
+2. TikZ !
+	- tip - standalone package
+	<br />
+3. Leave only the **really** necessary requirements and characteristics
+
+
 ## Meeting 15.11.21 ##
 
 1. Explain how the groups were formed
@@ -12,7 +22,7 @@ Kollaboration mit AIFB
 
 4. Describe in which requirements finance and healthcare differ and which ones apply to both
 
-5. Draw the link between Req-Table and Hyperledger/Ethereum
+5. Draw the links between Req-Table and Hyperledger/Ethereum
 
 6. Describe which requirements Hyperledger and Ethereum fulfil
 
