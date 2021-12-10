@@ -2,6 +2,20 @@
 
 Kollaboration mit AIFB
 
+To Discuss:
+- Methods
+
+Questions:
+- 
+
+
+## Meeting 06.12.21 ##
+
+1. Method
+
+2. Better Tables (relevatn, more relevant, not relevant)
+
+
 ## Meeting 22.11.21 ##
 
 1. Tables in 3.1 not necessary
