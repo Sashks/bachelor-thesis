@@ -3,7 +3,11 @@
 Kollaboration mit AIFB
 
 To Discuss:
-- Methods
+- 1.3 Method
+- 2.2 Requirements
+- 2.3 Use Cases
+	- 2.3.1 Healthcare
+	- 2.3.2 Finance
 
 Questions:
 - 
@@ -13,7 +17,7 @@ Questions:
 
 1. Method
 
-2. Better Tables (relevatn, more relevant, not relevant)
+2. Better Tables (relevant, more relevant, not relevant)
 
 
 ## Meeting 22.11.21 ##
