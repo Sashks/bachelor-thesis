@@ -3,14 +3,30 @@
 Kollaboration mit AIFB
 
 To Discuss:
-- 1.3 Method
-- 2.2 Requirements
-- 2.3 Use Cases
-	- 2.3.1 Healthcare
-	- 2.3.2 Finance
+-
+-
 
 Questions:
 - 
+- 
+
+Plan: 
+- Hyperledger and Ethereum Mapping
+- Why DLT in Healthcare
+- Why DLT in Finance
+- DLT Characteristics Mapping
+
+## Meeting 13.12.21 ##
+
+x - hermeneutics method erklaren beser (diagram)
+x - tabele mit such strings ..| or | and | .. | ..
+x - wo? - google scholar
+- req - mehr quellen?
+x - scalability vergleichen - daten vs teilnehmer - hc vs fin
+x - use cases erkleren einfuhren
+- wenig lesen - mehr fetig machen 
+- work package definieren fur winterferien
+- dlt trust beziehung erklaren
 
 
 ## Meeting 06.12.21 ##
