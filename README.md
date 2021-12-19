@@ -2,32 +2,46 @@
 
 Kollaboration mit AIFB
 
+To Read:
+-
+- 3.3.3 Differences 
+- 4.5 Cosnidered Approaches (Intro)
+- 5.3 Classifying Approaches
+	- 5.3.1 Fabric and DP
+	- 5.3.2 Eth and DP
+	- 5.3.3 Overview
+- Contents
+- Flowchart
+
 To Discuss:
 -
+- "To Read" sections - are they ok?
+- Chapter 5 Contents
+- Plan
+
+Winterferien Plan: 
 -
+- Q3
+	- DLT and DP
+	- DLT in Healthcare
+	- DLT in Finance
+- Q4
+	- CA Suitability for DP in Healthcare
+	- CA Suitability for DP in Finance
+- RQ
+	- Classification and Mapping (Evaluated Mapping)
+	- Mapping Characteristics to DP (text)
 
-Questions:
-- 
-- 
-
-Plan: 
-- Hyperledger and Ethereum Mapping
-- Why DLT in Healthcare
-- Why DLT in Finance
-- DLT Characteristics Mapping
 
 ## Meeting 13.12.21 ##
 
-x - hermeneutics method erklaren beser (diagram)
-x - tabele mit such strings ..| or | and | .. | ..
-x - wo? - google scholar
-- req - mehr quellen?
-x - scalability vergleichen - daten vs teilnehmer - hc vs fin
-x - use cases erkleren einfuhren
-- wenig lesen - mehr fetig machen 
-- work package definieren fur winterferien
-- dlt trust beziehung erklaren
+1. Hermeneutics - more detailed description
 
+2. Search strings table
+
+3. Use cases differences
+
+4. Considered approaches table
 
 ## Meeting 06.12.21 ##
 
