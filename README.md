@@ -33,6 +33,32 @@ Winterferien Plan:
 	- Mapping Characteristics to DP (text)
 
 
+## Meeting 20.12.21 ##
+
+1. abst - intro - fundamentals - ähnliche approaches - 3. methods - results - evaluation
+
+2. limitation und future work trennen
+
+3. differences - mehr prezise (scalab gut)
+
+4. "Another intersting point" - nicht umgangspr.
+
+5. 5.3.1. Sybyl attack - was zu tun mit Provenance?
+
+6. 5.3.1. Hyp and Dp - preziser (Accesibility, Availability). warum fur DP wichtig? mit use cases verbinden
+
+7. (!) etwas messen musen? Sollen was implementieren? messung? (ist es limitation?)
+
+8. 5.3.3. Argumentation mit DP
+
+9. flowchart - dlt char to ca
+
+10. evaluation - ziel orientiert RQ am anfang
+
+11. dlt auch problematish fur DP? use case frame
+
+12. email mit plan schicken
+
 ## Meeting 13.12.21 ##
 
 1. Hermeneutics - more detailed description
