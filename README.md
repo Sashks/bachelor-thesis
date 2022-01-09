@@ -2,22 +2,20 @@
 
 Kollaboration mit AIFB
 
-To Read:
+Done:
 -
-- 3.3.3 Differences 
-- 4.5 Cosnidered Approaches (Intro)
-- 5.3 Classifying Approaches
-	- 5.3.1 Fabric and DP
-	- 5.3.2 Eth and DP
-	- 5.3.3 Overview
-- Contents
-- Flowchart
+- Fundamentals
+- Considered Approaches (CA) in terms of DP
+- Considered Requirements (UC Req.) by DLTs in Healthcare and Finance
+- Venn diagrams
+- Mappings
+	- DLT Char. - DP Req.
+	- CA Char. - DP Req.
+	- CA Char. - UC Req.
 
-To Discuss:
--
-- "To Read" sections - are they ok?
-- Chapter 5 Contents
-- Plan
+TODO:
+- 
+-?
 
 Winterferien Plan: 
 -
@@ -35,29 +33,11 @@ Winterferien Plan:
 
 ## Meeting 20.12.21 ##
 
-1. abst - intro - fundamentals - ähnliche approaches - 3. methods - results - evaluation
+1. Abstract - Intro - Fundamentals - Similar Work - Method - Results - Discussion
 
-2. limitation und future work trennen
+2. Etw. messen? - Nein
 
-3. differences - mehr prezise (scalab gut)
-
-4. "Another intersting point" - nicht umgangspr.
-
-5. 5.3.1. Sybyl attack - was zu tun mit Provenance?
-
-6. 5.3.1. Hyp and Dp - preziser (Accesibility, Availability). warum fur DP wichtig? mit use cases verbinden
-
-7. (!) etwas messen musen? Sollen was implementieren? messung? (ist es limitation?)
-
-8. 5.3.3. Argumentation mit DP
-
-9. flowchart - dlt char to ca
-
-10. evaluation - ziel orientiert RQ am anfang
-
-11. dlt auch problematish fur DP? use case frame
-
-12. email mit plan schicken
+3. Winterplan
 
 ## Meeting 13.12.21 ##
 
