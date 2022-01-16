@@ -2,34 +2,21 @@
 
 Kollaboration mit AIFB
 
-Done:
+To Discuss:
 -
-- Fundamentals
-- Considered Approaches (CA) in terms of DP
-- Considered Requirements (UC Req.) by DLTs in Healthcare and Finance
-- Venn diagrams
-- Mappings
-	- DLT Char. - DP Req.
-	- CA Char. - DP Req.
-	- CA Char. - UC Req.
+- 0.Abstract
+- 5.Discussion
+- 6.Conlusion
+- 4.6.Mapping - What else should I write?
 
-TODO:
-- 
--?
 
-Winterferien Plan: 
--
-- Q3
-	- DLT and DP
-	- DLT in Healthcare
-	- DLT in Finance
-- Q4
-	- CA Suitability for DP in Healthcare
-	- CA Suitability for DP in Finance
-- RQ
-	- Classification and Mapping (Evaluated Mapping)
-	- Mapping Characteristics to DP (text)
+## Meeting 10.01.22 ##
 
+1. Venn diagrams - maybe
+
+2. Finish 5.Discussion
+
+3. Labels and References
 
 ## Meeting 20.12.21 ##
 
