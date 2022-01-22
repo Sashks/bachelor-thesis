@@ -4,11 +4,17 @@ Kollaboration mit AIFB
 
 To Discuss:
 -
-- 0.Abstract
-- 5.Discussion
-- 6.Conlusion
-- 4.6.Mapping - What else should I write?
+- Final touches
+- Abstract in german
+- Presentation
 
+## Meeting 17.01.22 ##
+
+1. Add more to abstr, disc, concl.
+
+2. Spellcheck
+
+3. Flowchart
 
 ## Meeting 10.01.22 ##
 
