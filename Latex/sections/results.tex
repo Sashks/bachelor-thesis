@@ -1,0 +1,691 @@
+\chapter{Results}
+\label{ch:results}
+
+\section{Requirements}
+\label{sec:requirements}
+
+\textit{Q1: What are the fundamental requirements for a personal DP approach?} \newline
+
+In recent years there has been a rapid growth of the provenance field in general and of DP solutions, in particular, which has derived into a large and heterogeneous research corpus of approaches to address a variety of DP concerns. Even so, at the present time there appears to be no clear consensus or common ground on aspects such as what requirements (a necessary feature) a DP approach should support or what technical details are involved in making these systems possible.
+
+In our work, by analysing the relevant literature we found on DP, we propose an answer to \textit{Q1} and, thereby determine and identify the fundamental requirements that a DP approach, suitable for tracing personal data, has to fulfil.
+
+We put these requirements into three groups to provide context: "Data Subject" consists of requirements important to the Data Subject  (\textbf{Identifiability, Ownership, Accessibility}), whereas "System" contains requirements for the particular tool/approach (\textbf{Scalability, Interoperability, Security, Traceability, Trust}). "Other" includes two requirements necessary in almost every system, however, we think they are still important to consider, because of this works' particular focus on the average user and their personal data.
+
+It is important to note that, for example, \textbf{Identifiability} encompasses the concept of identification, as well as pseudonymity, anonymity and unlinkability. \textbf{Security} is defined by confidentiality, integrity and availability (CIA). Also, these requirements influence each other and while sometimes equally important, they are often incompatible with one another. For example, by striving for \textbf{Scalability} and/or \textbf{Interoperability}, one must sacrifice Security, thereby potentially damaging consumers' \textbf{Trust} in the system. Also, for example, \textbf{Trust} is positively influenced by other secondary requirements such as accountability, system auditability, durability, data completeness, granularity, consistency, verifiability, authenticity, as well as the fulfilment of other requirements in this table (e.g. \textbf{Security}, \textbf{Traceability}, etc.). The following table presents the requirements we identified as fundamental for personal DP:\newline
+
+\begin{table}[H]
+    \centering
+
+\caption{Fundamental personal DP requirements}
+    \label{tab:dpreq}
+
+\begin{tabular}{|m{4em}|m{6.3em}|m{11cm}|}
+
+\hline
+%\multicolumn{2}{|l|}{\textbf{Requirement}} & \textbf{Description} \\
+\hspace{4pt}\cellcolor{gray!15}\textbf{Group} & \cellcolor{gray!15}\textbf{Requirement} & \cellcolor{gray!15}\textbf{Description} \\
+\hline
+\hline
+\multirow{5}{*}{\centerline{Data}} & \textbf{Identifiability}             & An unique identifier allows identification and lays the ground for accountability \cite{req_identification}. However anonymity, pseudonymity and unlinkability are as important. \cite{req_tets_logging_unlinkability_completeness,req_identification_anonymity}. \\ [0.3em]\cline{2-3}
+\multirow{2}{*}{\centerline{Subject}}     & \textbf{Ownership}                  & Allows Data Subjects to get an overview, request or perform changes and deletion of the data that they own. \cite{req_ownership_access_transparency}\\ [12pt]\cline{2-3}
+                          & \textbf{Accessibility}              & Allows Data Subjects with access to view, store, retrieve, move or manipulate data, based on their access rights \cite{req_ownership_access_transparency, bier2016privacyinsight}. \\ [12pt]\hline\hline
+\multirow{22}{*}{\centerline{System}}  & \textbf{Scalability}                & With the increase of the data volume, number of operations or participants, it should be possible to store and process provenance information efficiently and without risk of information loss \cite[p.~16]{req_scalability,req_traceability13_scalability16_usability17}. \\ [0.3em]\cline{2-3}
+                          & \textbf{Interoperability}           &  The ability of different information systems, devices or applications to connect, in a coordinated manner, within and across organisational boundaries to access, exchange and cooperatively use data amongst Data Subjects \cite[IntOp]{req_interoperatbility}. \\ [0.3em]\cline{2-3} 
+                          & \textbf{Security}            & Ensures non-disclosure of data traveling over the network to unauthorised Data Subjects (confidentiality) \cite{req_confidentiality}. Ensures that the Data Receiver may detect unauthorised changes made to the data (integrity) \cite{req_integrity}. Ensuring that data and is provenance is available to Data Subjects,when and where they need it (availability) \cite{req_availability}. \\  [0.3em]\cline{2-3} 
+                          & \textbf{Traceability} & In this work we consider traceability and transparency synonymous to each other. It means providing information on what transmitting principle was used, what type of data, for what purpose and to whom the information was sent. How data is collected; how, when, where it is stored \cite[p.~13]{req_traceability13_scalability16_usability17,req_ownership_access_transparency}. \\ [0.3em]\cline{2-3}
+                          & \textbf{Trust}                     & If the Data Subject trusts the system, they seem to be willing to share personal information \cite{trust_1}. The willingness to share data can also increase if the Data Subject finds the advantages of engaging in such a transaction more valuable than the loss of privacy \cite{trust_2,trust_3}. \\ [12pt]\hline\hline
+\multirow{6}{*}{\centerline{Other}}    & \textbf{Compliance}                   & Enforcing laws \cite{gdpr_chap3}, policies and regulations such as purpose limitation \cite{req_policies_pl}, data minimisation \cite{req_policies_dm}, etc. \\ [12pt]\cline{2-3}
+                          & \textbf{Usability}                  & Provides clear interfaces and structures that display provenance information in an understandable way (usage of icons, graphs, etc.). Managing security (and privacy) is not the primary task of the user \cite{req_traceability13_scalability16_usability17}. \\ \hline
+\end{tabular}
+
+\end{table}
+
+\newpage
+%------------------------------------------------------------------------------------------------
+
+\section{Use Cases}
+\label{sec:usecases}
+
+\textit{Q2: What is the importance of individual DP requirements in terms of healthcare and finance?}\newline
+
+In this work we investigate DP technologies for both \textit{healthcare} and \textit{finance} and in order to answer \textit{Q2}, we take a closer look at each individual DP requirement. While all of the above mentioned requirements (see section \ref{sec:requirements}) are important in such technologies, with this approach we aim to develop an overview and understanding of the nuances and differences between both use cases, in terms of the DP requirements. This is an important step, in order to accurately compare and map them to our considered approaches' features further in the work and have a basis for evaluation of the requirements fulfilled by DLT-based DP approaches in \textit{healthcare} and \textit{finance}. By analysing how each DP requirement was expressed through the lens of \textit{healthcare} and \textit{finance}, we can observe the differences that emerge due to the nature of the use cases. 
+
+%The marked fields in the following table show for which DP requirement in which use case we found supporting literature that states, that the DP requirements are more nuanced than the general DP use case. Consequently, the table shows where the requirements can differ in meaning and importance (empty means that the requirement is similar to the general description in table 2.2). \newline
+
+%The marked fields in the following table show which of our DP requirements are more nuanced than the general description (table 2.2) for the particular use case. \newline
+
+\begin{comment}
+\begin{center}
+\begin{tabular}{|m{3.5em}|m{6.3em}|m{4cm}|m{4cm}|}
+\hline
+\rule{0pt}{4ex}\hspace{4pt}\cellcolor{gray!15}\textbf{Group} & \rule{0pt}{4ex}\cellcolor{gray!15}\textbf{Requirement} & 
+\rule{0pt}{4ex}\cellcolor{gray!15}\hspace{25pt} \textit{\textbf{Healthcare}} \hspace{30pt} &
+\rule{0pt}{4ex}\cellcolor{gray!15}\hspace{30pt} \textit{\textbf{Finance}} \hspace{30pt} \\
+[12pt]\hline\hline
+\multirow{6}{*}{\centerline{\textbf{User}}} & \rule{0pt}{4ex} Identifiability & \rule{0pt}{3ex}\hspace{55pt}x & \rule{0pt}{3ex}\hspace{55pt}x \\ [12pt]\cline{2-4}
+                          & \rule{0pt}{4ex} Ownership & \rule{0pt}{3ex}\hspace{55pt}x & \\ [12pt]\cline{2-4}
+                          & \rule{0pt}{4ex}Accessibility & \rule{0pt}{3ex}\hspace{55pt}x & \rule{0pt}{3ex}\hspace{55pt}x \\ [12pt]\hline\hline
+\multirow{6}{*}{\centerline{\textbf{Data}}} & \rule{0pt}{4ex} Traceability & \rule{0pt}{3ex}\hspace{55pt}x & \rule{0pt}{3ex}\hspace{55pt}x \\ [12pt]\cline{2-4}
+                          & \rule{0pt}{4ex} Completeness & & \\ [12pt]\cline{2-4}
+                          & \rule{0pt}{4ex} Granularity & & \\ [12pt]\hline\hline
+\multirow{6}{*}{\centerline{\textbf{System}}} & \rule{0pt}{4ex} Scalability & \rule{0pt}{3ex}\hspace{55pt}x & \rule{0pt}{3ex}\hspace{55pt}x \\ [12pt]\cline{2-4}
+                          & \rule{-2pt}{4ex} Interoperability & \rule{0pt}{3ex}\hspace{55pt}x & \\ [12pt]\cline{2-4} 
+                          & \rule{0pt}{4ex} Trust & \rule{0pt}{3ex}\hspace{55pt}x & \rule{0pt}{3ex}\hspace{55pt}x \\ [12pt]\hline\hline
+                          & \rule{0pt}{4ex} Confidentiality & \rule{0pt}{3ex}\hspace{55pt}x & \rule{0pt}{3ex}\hspace{55pt}x \\ [12pt]\cline{2-4}
+
+\textbf{Security}         & \rule{0pt}{4ex} Integrity & \rule{0pt}{3ex}\hspace{55pt}x & \\ [12pt]\cline{2-4}
+                          & \rule{0pt}{4ex} Availability & \rule{0pt}{3ex}\hspace{55pt}x & \\ [12pt]\hline\hline
+\multirow{6}{*}{\centerline{\textbf{Other}}} & \rule{0pt}{4ex} Policies & \rule{0pt}{3ex}\hspace{55pt}x & \\ [12pt]\cline{2-4}
+                          & \rule{0pt}{4ex} Usability & & \\ [12pt]\hline
+\end{tabular}
+\end{center}
+\end{comment}
+
+\subsection{Healthcare}
+\label{ssec:healthcare}
+
+Actors: \textit{Patient, Physician, Institution} \newline
+
+In regard to medical treatment and patient safety, the importance of data, its origins and quality have long been recognised in clinical research \cite{rec_in_clinical_research} \cite{history_in_diagnosis}. Creating trust relationships among the various actors is vital - e.g., evidence-based medicine and healthcare-related decisions using third-party data are essential to patient safety \cite{health_1}. DP is also crucial for solving confidentiality issues with healthcare information like accidental disclosures, insider curiosity and insider subornation \cite{health_confidentiality}. When talking about processing, integrating, or sharing medical data, a strong emphasis must be put on data security and privacy. Medical data is categorised as highly sensitive personal data and therefore protection from unauthorised access, manipulation, or damage has to be guaranteed \cite{cavanillas2016new}. In the following we discuss the important aspects of each of the DP requirements pointed out in table \ref{tab:dpreq} in terms of healthcare.\newline
+
+
+\textbf{Identifiability}: There are important trade-offs between identifiability and unlinkability/anonymity. For example, a patient feels that their physician misrepresented a test and wants to share this information, but is reluctant to do so, since casting the physician in a negative light can have repercussions in their care at a later time \cite{req_h_anon}. Another example is the perceived stigma of having a mental disorder acts as a barrier to help seeking. It is possible that patients may be reluctant to admit to symptoms suggestive of poor mental health when such data can be linked to them, even if their personal information is only used to help them access further care. There is a significant effect on reporting sub-threshold and non common mental disorders when using an anonymous compared to identifiable questionnaire \cite{mental_health}. Studies suggest that anonymity is strategically used and fosters self-disclosure among individuals who are embarrassed by their illness \cite{anonymity_disclosure}. 
+
+On the other hand most people believe that, when a physician makes an error, an incident report should be written and the individual should be identified on the report. People are reluctant to accept physician anonymity, even though this may encourage reporting \cite{medical_report}. Also, Data Protection Act insists that patients must consent directly to participate in research or that patients' data must be completely anonymised. However, this causes particular problems for epidemiological research \cite{epidemiological_research} which often requires access to routinely collected identifiable personal data, or requires identification of research participants from such data. Obtaining individual consent from large numbers of patients may be onerous or simply impossible, for example if patients have died or moved away, and participation bias may undermine the data. Anonymising data is difficult and expensive and greatly limits their future value \cite{medical_research}. \newline
+
+\textbf{Ownership}: A relevant issue is the ongoing debate about the ownership of patient data among various stakeholders in the healthcare system including providers, patients, insurance companies and software vendors. In general, the current model is such that the patient owns his/her data, and the provider stores the data with proprietary software systems. The business models of most traditional EHR (electronic health record) companies are based on building proprietary software systems to manage the data for insurance compensation and care delivery purposes. Such approach does not encourage or makes it difficult for individual patients to share data for scientific research, nor does it encourage patients to obtain their own health records that may help better manage their health and improve patient engagement \cite{health_ownership}. \newline
+
+\textbf{Accessibility}: It is important that the different actors can view, store, retrieve, move, request changes/deletion or manipulate medical data based on their access rights \cite{req_health3}. For example, patients should be able to see what prescriptions they have so they know what medicine to take; physicians should be able to alter the prescriptions of their patients and also to see what prescription a patient has gotten from other physicians so that they can correctly treat them and avoid medication errors; an institution should be able to verify a patient's prescription to make sure that they are not trying to purchase unintended pharmaceuticals \cite[Priv]{req_h_priv}. \newline
+
+\textbf{Scalability}: The amount of global healthcare data is expected to increase dramatically by the year 2020. Early estimates from 2013 suggest that there were about 153 exabytes ($10^1^8$) of healthcare data generated in that year. However, projections indicate that there could be as much as 2,314 exabytes of new data generated in 2020 (around 15 times more) \cite{health_scale}. However, because of the sensitive and private nature of healthcare data, it is important that scalability should not come at the expense of security and trust. \newline
+
+\textbf{Interoperability}: Healthcare is considered as a domain with growing focus on interoperability. Products obeying international standards will improve quality and sharing . Interoperability helps policy makers and project coordinators in defining long term strategies by providing software sustainability and securing the investments. Moreover, interoperability enforces security and patient safety: the quality of the patient healthcare treatment is not depending on the quality of a specific software solution (the so-called vendor lock-in effect). Using international standards forces vendors to comply with the state-of-the-art of the security measures \cite{health_1}. This interoperability is a fundamental requirement for the health care system to derive the societal benefits promised by the adoption of electronic medical records (EMRs). One critical question is whether the adoption of EMRs needs to wait for interoperability standards or whether it can proceed efficiently without them \cite{health_interop}.\newline
+
+\textbf{Security}: Confidentiality and trust between a physician and patient is not new: it is central to the practice of healthcare and has been focused on since Hippocrates. Whilst the concept of patient confidentiality has endured as an ideal throughout history. In the digital age, patient confidentiality is often framed within the context of electronic patient records and the potential involvement of third parties. While the involvement of institutions and other research organisations can resolve many practical issues for healthcare providers, it often involves the transfer of sensitive patient information to these institutions \cite{health_confidentiality}. Therefore, it is important that there is not any disclosure of medical data traveling over the network to unauthorised actors \cite[p.~96]{req_health2}. Sometimes, however, difficulties with keeping the confidentiality of personal health information may arise, because of the often unclear position of family members and friends, in patient's health and medical treatment \cite{familiy_confidentiality}. 
+
+Data Integrity issue is one of the most demanding concerns for the healthcare industry in the whole world. An integrity breach in a healthcare organisation can have disastrous consequences. A patient whose data has been tampered with could be given wrong medications causing fatalities. Most healthcare organisations at present have weak and vulnerable data storage procedures and lack secure mechanisms to foil malware attacks. All these issues create many challenges associated with data integrity in healthcare organisations \cite{health_integrity1}. A more concrete example is preserving the integrity of medical images through watermarking schemes \cite{watermarking}. Medical images transmitted through the network can be easily tampered and forged, which increases the risks of misdiagnosis. Therefore, the image authenticity and integrity have become two crucial security factors in e-Health applications \cite{health_integrity2}. 
+
+The immediate Availability of patient and resource oriented information is of great importance, in order for physicians and institutions to, for example, identify the most appropriate ambulance and healthcare setting; provide guidance to physicians as to the most appropriate management of the emergency case at hand; prioritise/classify the emergency case and overall improve the quality of the emergency care \cite{availability_emergency}. Medical data and its provenance should be available and ready for immediate use, especially in cases of emergency \cite{req_health1}. \newline
+
+\textbf{Traceability}: Traceability in healthcare is at the crossroads of numerous needs. It is therefore of particular complexity and raises many new challenges. Identification management and entity tracking, from serialisation of pharmaceuticals, to the identification of patients, physicians, locations and processes is a huge effort, tackling economical, political, ethical and technical challenges. There are growing needs to increase traceability for drug products, related to drug safety and counterfeited drugs \cite{drug_tracing}. Technical problems around reliability, robustness and efficiency of carriers are still to be resolved. Traceability is a major aspect of the future in healthcare and requires the attention of the community of medical informatics \cite{health_traceability}. \newline
+
+\textbf{Trust}: Trust is, of course, essential to both physician and patient. Without trust, it is difficult for a physician to expect patients to reveal the full extent of their medically relevant history, expose themselves to the physical exam, or act on recommendations for tests or treatments \cite{trust_20,trust_21}.  Trust promotes efficient use of both the patient's and the physician's time. Without trust, the process of informed consent for the most minor of interventions, even a prescribed antibiotic, would become as time consuming as that needed for major surgery \cite{trust_distrust_trustworthiness}. Furthermore, physician-to-patient relationship is jeopardised when people do not trust that their personal health information will be kept confidential, and that these data will not be utilised for purposes other than medical \cite{req_health1}. 
+
+It is also suggested that it is morally important for doctors to trust patients. Doctors' trust of patients lays the foundation for medical relationships which support the exercise of patient autonomy, and which lead to an enriched understanding of patients' interests. It may not be possible to trust at will, the conscious adoption of a trusting stance is necessary as the burdens of misplaced trust fall more heavily upon patients than physicians \cite{doctors_trust_patients}. In terms of medical research, one of the three key factors to the patients willingness to share data is contingent upon trust who is accessing the data \cite{trust_med_research}. \newline
+
+\textbf{Compliance}: Unfortunately, legal controls over data collection in European countries have badly affected the work of epidemiologists \cite{policies_epidem}. While data protection laws, policies and regulations aim to protect the patients information, rights and health, they might cause harm to the patients well-being in the long run, by damaging the ability of institutions to conduct unbiased and reliable medical research \cite{epidemiological_research,policies_epidem_journalism}. \newline
+
+\textbf{Usability}: For example, 30\% of electronic medical record (EMR) system implementations fail, often because physicians cannot use them efficiently. User experience problems are wide-spread among EMRs. These include loss of productivity and steep learning curves \cite{health_usability_1}. There is an increasing awareness of the need for higher usability of medical technology. This requires an understanding of what usability is and what usability evaluation methods are suitable, both in the design process and when medical technology is purchased at hospitals \cite{health_usability_2}. Also, a big challenge is the lack of patient engagement in healthcare (not all patients are willing and able to manage their own data), which can be potentially improved through higher ease of use.
+
+
+%... are, of course, of great importance and the more requirements are fulfilled in a DP approach, the better. However, these requirements don't seem to have any specific aspects that differ from the general description in table 2.2, in terms of healthcare. Therefore, we concluded that they don't require that much of our further attention or detailed investigation.
+
+%------------------------------------------------------------------------------------------------
+\subsection{Finance}
+\label{ssec:finance}
+
+Actors: \textit{Consumer, Institution}\newline
+
+In online banking, digital money and digital financial services, the importance of information about transactions, money flow, money origin, credit scores and financial decisions is becoming bigger and bigger since the emergence of e-finance \cite{e_finance_importance}. DP is of great use  not only in investigating money laundering \cite{money_laundering}, tracing donations \cite{finance_4}, charities \cite{finance_1} or illegal funding \cite{illegal_funding}, but also loans and financing, mortgages, trading of currencies, insurance policies and others \cite{finance_whats_next}. However, ‘big tech’ are also venturing into financial services \cite{big_tech_in_finance}. While being accused for abuse of market power and anti-competitive behaviour, they are also famous for not giving extensive information on how personal data is analysed, processed or interacted with by third parties and international or government organisations \cite[RV19]{big_tech_bad}, which has a negative impact on the consumers' ability to trace their personal data. \newline
+
+
+\textbf{Identifiability}: On one hand, in the last ten years there has been a tendency to introduce anonymity into stock, bond, and foreign exchange markets. Almost all the asset markets organised as electronic platforms are anonymous \cite{aliprantis2007anonymous}. On the other, The last few years have seen an international campaign to ensure that the world's financial and banking systems are "transparent," meaning that every actor and transaction within the system can be traced to a discrete, identifiable individual \cite{sharman2010shopping}. Anonymity fosters crime, while identifiability challenges privacy. For example, there is a high degree of anonymity with Bitcoin \cite{bitcoin}, however traceability is possible \cite{bitcoin_anonymity}. In connection to this, a study shows that the relationship between participants’ views on anonymity and traceability as a disadvantage to bitcoin transactions was statistically significant \cite{bitcoin_anonymity_study}. Perhaps consumers should be able to perform operations in an pseudonymous way, that ensure ownership (pseudonyms are not improperly used by others) and ensure individuals are held accountable for abuses created under any of their pseudonyms \cite{req_f2}. \newline
+
+\textbf{Ownership}: Today the relationship between banks and consumers has been reversed: consumers now have transient relationships with multiple banks. Banks no longer have a complete view of their customer’s preferences, buying patterns, and behaviours. Big data technologies therefore play a focal role in enabling customer centricity in this new paradigm. Big data technology and analytical techniques enable financial services institutions to get deep insight into customer behaviour and patterns, but they still struggle to take specific action based on this data. Customer data is a continuing cause for concern. Regulation remains a big unknown: what is and is not legally permissible in the ownership and use of customer data remains ill-defined \cite{cavanillas2016new}. Individuals should remain able to ask financial services organisations to remove or refrain from processing their personal data in certain circumstances.
+This requirement however, could lead to increased costs for financial services organisations, as they deal with individuals’ requests. This removal of data may also lead to the data-set being skewed, as certain groups of people will be more active and aware of their rights than others \cite{cavanillas2016new}.\newline
+
+\textbf{Accessibility}: Not all information in e-finance is private. Indeed, by law, many types of transactions must be made available to various institutions, ranging from the government to the public. As a practical matter, there will often be several parties to a transaction who must have access to the information \cite{trust_traceab_e_commerce}. Another example is money inheritance, where an institution or another consumer can give access rights to their personal financial data or money. This can mean that consumers require and can attain access rights to other consumers' or institutions' financial data. \newline
+
+\textbf{Scalability}: E-Finance is a constantly growing field. As of November 2021, there were over 10 000 FinTech (financial technology) startups in the Americans, making it the region with the most FinTech startups globally. In comparison, there were over 9 000 such startups in the EMEA region (Europe, the Middle East, and Africa) and over 6 000 in the Asia Pacific region. 25 000 new startups in 2021 compared to only around 12 000 in 2018 \cite{fin_scale}.
+Financial transaction volumes are also increasing, leading to data growth in financial services firms. In capital markets, the presence of electronic trading has led to an increase in the number of trades. The Capgemini/RBS Global Payments study for 2012 estimates that the global number of electronic payment transactions is about 260 billion and growing between 15 and 22\% for developing countries \cite{cavanillas2016new}.
+However, with big tech providing basic financial services through their low cost structures (especially where a large part of the population remains unbanked) \cite{big_tech_in_finance}, large-scale DP approaches should consider measures against discrimination, abuse of market power, anti-competitive and monopolistic use of data. \newline
+
+\textbf{Interoperability}: Without interoperability, consumers need to visit multiple institutions and systems to make transactions with different networks, which are subject to fees. If networks are interconnected, fees are expected to be lower. Thus, transactions are cheaper and more other consumers can be reached, which will increase the number of transactions \cite{fin_interop}. \newline
+
+\textbf{Security}: According to a study examining the conflict between anti-money laundering and anti-terrorism finance law requirements and bank secrecy and confidentiality laws \cite{confidentiality_conficts}, the duty of confidentiality is regarded as an essential feature of the institution-consumer relationship and it was enunciated at a time when crime was viewed as a local phenomenon. However, the last two decades have seen the rise of transnational crimes such as money laundering \cite{money_laundering} and terrorist financing \cite{illegal_funding}. To counter these crimes a number of legislations were enacted which, require institutions to disclose their consumers’ financial information in certain circumstances to law enforcement authorities. This is justified by the fact that institutions are used by criminals to launder criminal proceeds and the audit trail they leave behind helps criminal investigation and prosecution. However, this is still personal financial information and there exist the requirement for some level of confidentiality \cite{confidentiality_conficts}. Also, Integrity is important in finance, helping to generate the trust that is vital for a financial system to flourish \cite{fin_integrity_1,fin_integrity_2,fin_integrity_3}. \newline
+
+\textbf{Traceability}: The term traceability may have a law enforcement implication suggesting, for example, the ability to monitor or track the activities of consumers. While transaction records and audit trails certainly can provide such a capability, this is different from using traceability to verify the accuracy of a measurement or the authenticity of a set of data \cite{trust_traceab_e_commerce}. Traceability can discourage fraud, and criminal activities like money laundering \cite{money_laundering}, illegal funding \cite{illegal_funding} or simply bring transparency in donation tracing \cite{finance_1,finance_2,finance_3}. There is also a research that supports the notion that transparency is a desirable characteristic of financial reports - increased transparency reduces information risk and cost of capital \cite{traceability_finance}. \newline
+
+\textbf{Trust}: Financial transactions, being all exchanges of money over time, should be particularly dependent on trust. In fact any financial transaction, being it a loan, a purchase of a stock of a listed company or the purchase of an insurance policy, has a fundamental characteristic: it is an exchange of money today against a promise of (more) money in the future. But what leads the consumer to believe that promise and make the exchange actually possible, is trust. The trust of a consumer who has invested in the stock of a company that his money will not be appropriated by the company's managers \cite{trust_finance_insurancemarkets}. Currently trust in finance is highly dependant on third parties and intermediaries \cite{third_party_fin,intermediaries}, which also has its risks \cite{third_party_risks}. Also, security and privacy, usability and reputation have a direct and significant effect on consumer trust in a financial services. Besides this, consumer trust is positively related to relationship commitment. It is also observed that trust is a key mediating factor in the development of relationship commitment in the online banking context \cite{fin_trust}.\newline
+
+\textbf{Compliance}: Since financial applications and services carry quite sensitive consumer personal data, there should exist a policy framework that provides comprehensive set of policies that aim to ensure security, transparency and trust \cite{fin_compliance_1}. Financial regulations can also stabilise the financial market and increase the benefit to consumers by promoting innovation and competition in the market \cite{fin_compliance_2}. \newline
+
+\textbf{Usability}: As the diversity of services in the financial market increases, it is critical to design usable tools in order to overcome the complex structure of the system \cite{fin_usability_2}. Consumers are heavily encouraged to perform critical financial operations online, despite the continuing absence of appropriate tools to do so. Many security requirements are too difficult for consumers to follow, and some marketing-related messages about safety and security can actually mislead consumers \cite{fin_usability_1}. Also, usability was found to have a positive effect on consumer satisfaction and satisfaction with previous interactions with the system had a positive effect on both consumer loyalty and trust \cite{fin_usability_3}. 
+
+%------------------------------------------------------------------------------------------------
+
+\subsection{Comparison}
+\label{ssec:comparison}
+
+To gain understanding of some of the differences, we can take a look at, for example, \textbf{Accessibility}. In both use cases some data should be accessed only by authorised individuals or institutions. However, in healthcare, due to the prominent hierarchical structure (patient, physician, institution), patients having access to the physician's or institutions' information, as well as patients sharing their health information between each other is uncommon. Physicians and institutions should operate with patients' personal health data with confidentiality. There is a stronger need for individual \textbf{Accessibility} control and access rights in comparison to finance, where, for example, many types of transaction and financial reports must be made available to various institutions, ranging from the government to the public. 
+
+In healthcare, \textbf{Scalability} must account for the rapidly increasing quantities of medical data generated, whereas for finance, it is suggested that such approaches should be able to handle the constantly growing number of participants and transactions.
+
+\textbf{Interoperability} in finance means faster transactions with lower transaction fees. On the other hand, \textbf{Interoperability} in healthcare means potentially better treatment and patient safety. Additionally, medical data and its provenance should be always available and ready for immediate use, especially in cases of emergency, compared to finance, where the patients life and health are generally not dependant on the immediate availability of information.
+
+Another important mention is the legal control over data collection in European countries (\textbf{Compliance)}. Laws, regulations and policy frameworks in \textit{finance} only seem to benefit the consumer by ensuring transparency, \textbf{Security} and \textbf{Trust}. In healthcare, however, although aiming to protect patient's information rights and health, the same approaches can damage the ability of epidemiologists and institutions to conduct unbiased and reliable medical research, thereby, paradoxically, cause harm to the patients well-being in the long run.
+
+%------------------------------------------------------------------------------------------------
+
+\section{Considered Approaches}
+\label{sec:consideredapproaches}
+
+\textit{Q3: Which are the preferred DLT approaches for DP in healthcare and finance and why?}\newline
+
+Many of the existing DP approaches are based on a centralised storage model \cite{req_security}. The downside to the centralised system architecture is that if the central server is compromised, the whole DP trails could be compromised. According to the literature, most DP systems do not try to validate the changes before they are stored \cite{req_security}. DLTs can serve as a medium for storing information and providing validations for each of the changes before logging the changes (using smart contracts, for example). The immutable nature of the DLT's environment ensure that the approved provenance changes cannot be modified by any users once they are stored. Due to the distributed nature of DLTs, the DP trails can be replicated on every node of the network ensuring high availability and fault tolerance.
+
+Removing the need for a centralised trusted third party in distributed applications is, perhaps, the most obvious and outstanding benefit of DLTs \cite{agbo2019blockchain}. By making it possible for two or more parties to carry out transactions in a distributed environment without a centralised authority, DLTs overcome the problem of single point of failure that we mentioned, which a central authority would otherwise introduce. It also improves transaction speed, by removing the delay introduced by the central authority, and at the same time, it makes transactions cheaper since the transaction fees charged by the central authority is removed. In place of a central authority, DLTs usually use a consensus mechanism to reconcile discrepancies between nodes in a distributed application.
+
+Another DLTs property is DP \cite{dlt_3}. The data storage process in any distributed ledger is facilitated by means of a mechanism called transaction. Every transaction needs to be digitally signed using public key cryptography (PKI) which ensures the authenticity of the source of data. Combining this with the immutability and irreversibility properties of a distributed ledger provides a strong non-repudiation instrument for any data in the ledger.
+
+One example of DLT, namely blockchain, was initially employed as the public transaction ledger for cryptocurrencies \cite{bitcoin}. However, beyond cryptocurrencies, blockchain technology has been recently considered for a plethora of other applications \cite{dlt_2,walmart,health_1,DP_storagesys} as it encapsulates unique characteristics including decentralisation, security, transparency and provenance. Such characteristics are particularly advantageous for variety of prominent issues experienced in the financial sector. As a result, blockchain technology holds the potential to revolutionise the financial industry by altering the way in which different services are conducted. Healthcare is also a domain in which blockchain is expected to have significant impact. Research in this area is relatively new but growing rapidly; so, health informatics researchers and practitioners are always struggling to keep pace with research progress in this area. 
+
+After a detailed analysis of the available literature, we noticed that many studies seem to either use or suggest permissioned instead of permissionless DLT designs for the implementation of DP solutions in the healthcare and financial domain, due to the private and sensitive nature of the information \cite{hasselgren2020blockchain}, as well as the more flexible, reliable and efficient nature of permissioned DLT designs. 
+
+In healthcare, the majority of applications are developed on the popular blockchain networks, such as Ethereum and Hyperledger Fabric \cite{agbo2019blockchain,hasselgren2020blockchain, dagher2018ancile, haq2018blockchain, health_4,ramani2018secure, health_5,health_1}. The leading use cases are health records (EMRs, EHRs, PHRs), followed by other blockchain use cases, such as the management of the drug/pharmaceutical supply chain, biomedical research and education, health insurance claim processing and remote patient monitoring \cite{holbl2018systematic,agbo2019blockchain}.
+
+Finance being a broad domain, numerous different DLT and blockchain approaches can be considered. It is not feasible to investigate them all in this paper, however, there are studies that consider Hyperledger Fabric as a blockchain framework in the financial industry \cite{bettio2019hyperledger,chen2018blockchain,ariffin2019design,ma2019privacy} and Ethereum is a general purpose blockchain platform, which is widely used for numerous financial services \cite{tikhomirov2017ethereum}. Some of the use cases we identified include payments, trade finance, credit scoring, donation tracing, loans and financing, mortgages, insurance policies, trading of currencies, etc.
+
+The high level of consideration of these approaches in healthcare and finance research serves as motivation to focus our attention on these two DLT designs: Hyperledger Fabric and Ethereum, consequently answering \textit{Q3}. 
+
+In the following two subsections we aim to map Hyperledger Fabric's and Ethereum's characteristics to our DP requirements.
+
+%------------------------------------------------------------------------------------------------
+
+\subsection{Hyperledger Fabric}
+\label{ssec:fabric}
+
+In Hyperledger Fabric, since the network is permissioned, every user participating in a transaction must register in the network for getting their corresponding IDs, which can ensure high \textbf{Identifiability} \cite{hl_84}. The identity of each entity within the network is verified, thereby enabling auditability and accountability. However, high \textbf{Identifiability} is not necessarily a good feature in terms of DP in healthcare and finance. As previously mentioned, while physician accountability in case of error is desirable, data anonymity is as important in reporting mental illness and conducting medical research; in finance anonymity fosters crime, while \textbf{Identifiability} challenges privacy. There is also a tendency to introduce anonymity into stock, while there are campaigns to ensure transparency and \textbf{Identifiability} in banking systems.
+
+Another one of the many compelling Hyperledger Fabric features is the enablement of a network of networks. Members of a network work together, but because agents need some of their data to remain private, they often maintain separate relationships within the networks \cite{hyperledger}. The modular architecture of Hyperledger Fabric helps to achieve data confidentiality, \textbf{Scalability} and \textbf{Security}. Incorporating chaincodes (smart contracts) can ensure control over authorisations, \textbf{Accessibility} privileges and data \textbf{Ownership} on the blockchain network, which we consider essential for DP (table \ref{tab:dpreq}).
+
+Hyperledger Fabric's high throughput (3000 transactions per second) and low latency relate to easier \textbf{Scalability}. Here it is important to note that, while Hyperledger Fabric can scale in terms of number of transactions per second, it is not as easily scalable in terms of new actors constantly joining the network (due to its private, permissioned nature). This makes Hyperledger Fabric a potentially better candidate for a healthcare DP solution (given the constantly growing volume of clinical data involved), compared to finance, due to their previously mentioned differences in terms of \textbf{Scalability} \cite{health_1}.
+
+Good \textbf{Interoperability} can also be observed thanks to its multi-language smart-contract support (Go, Java, Javascript) and Fabic's support for EVM and Solidity. Hyperledger Fabric also claims to achieve high level of \textbf{Security} thanks to its robustness, private transactions, confidential contracts, data isolation, governance of smart contracts, etc. However, due to lack of international standards in healthcare and the overall high number of different DLT designs used in healthcare and finance, \textbf{Interoperability} remains one of the most difficult challenges. Applications developed by different vendors or on different platforms may not be able to interoperate. For example, two systems, where one is developed on the Ethereum platform while the other is developed on the Hyperledger Fabric platform makes it challenging to exchange information from one platform to the other.
+
+Access rights, linkability through identification and the nature of blockchain can provide high degree of \textbf{Traceability}. Its highly modular and permissioned architecture can bring confidentiality and \textbf{Security}. This, combined with blockchain’s property of decentralisation, immutability, data provenance, auditability, accountability, reliability, etc. can help achieve \textbf{Trust} and make it suitable for storage and management of patients' health records or consumers' financial information.
+
+However, the credibility of a private network relies on the credibility of the authorised nodes, which means they need to be trustworthy as they are verifying and validating transactions. In terms of \textbf{Usability}, the upgradability of chaincode in Hyperledger Fabric is vital when new logic needs to be incorporated or a bug needs to be fixed and queryable data is also a feature which can positively impact ease of use. \cite{hyperledger}.
+
+%------------------------------------------------------------------------------------------------
+
+\subsection{Ethereum}
+\label{ssec:ethereum}
+
+Ethereum (public), being a public ledger, has strong support for auditability and accountability in case the proper identity of entities can be verified and it provides pseudonymous \textbf{Identifiability} via public key, which, as we previously mentioned, can be beneficial for DP in both healthcare and finance. Ethereum executes random complexity codes through its EVM and is freely available without authorisation to any person. Due to the fact that Ethereum is totally outside of every particular area of application and serves more as a general interface for all types of transactions and applications. Although, \textbf{Ownership} and \textbf{Accessibility} are not necessarily provided features, they can still be influenced by Ethereums' possible use of tokens or implemented through smart contracts \cite{varma2019blockchain, yoo2017blockchain,polyviou2019blockchain}. 
+
+Furthermore, Ethereum lacks speed and faces concerns over \textbf{Scalability} (due to its probabilistic finality \cite{probabilistic_finality}), energy consumption and cost \cite{dlt_3}. The bigger the public network, the slower it is, as more transactions take place and clog the network. From the \textbf{Scalability} perspective, Blockchain-based systems like Ethereum, are commonly compared \cite{eth_scaling_6} with conventional systems like VISA (2000-56000 transactions per second vs. 13 of Ethereum). This quantitative comparison shows that Ethereum is quite far from offering a viable implementation platform for all transaction-based systems \cite{eth_scalability_quantitative_analysis}. Data stored in these ledgers is also visible to any participant and therefore not suitable to handle sensitive data, which on the other hand benefits transparency and general DP. Storing data also incurs expense and is therefore infeasible to store a large amount of data in the ledger. On the other hand, due to the network's public nature, new actors can easily join the network and take part, without requiring permission. This can be really beneficial in terms of \textbf{Scalability} and the constantly increasing number of FinTech startups and unbanked individuals entering the domain through new (blockchain) approaches for financial services.
+
+According to the scalability trilemma \cite{eth_scalability_quantitative_analysis}, at the expense of \textbf{Scalability}, we get \textbf{Security} and decentralisation (\textbf{Trust}). Ethereum's immutable computer logic, together with smart contracts, EVM, consensus mechanism, Ether (token, used to store, process and update data via transactions) and lack of necessity for trusted third parties, further increase the \textbf{Traceability} of information and \textbf{Trust} in the system. The immutability and irreversibility of the ledger can provide integrity. In terms of availability, the public Ethereum network is best suited to storing long-term static data that need to be widely available, such as the Ethereum Registration Authority information \cite{eth_availability} (\textbf{Security}), which makes it particularly useful for patients' health records or consumers' financial information. 
+
+Thanks to its customisability through Turing-complete smart contracts, its generalised purpose, flexibility, adaptability, current success and available tools, research and information for developers and users, it can be seen as accessible, relatively widespread and easy to use/setup (\textbf{Usability}). However, smart contracts in Ethereum lack any upgradability feature, thereby making it difficult to update any smart contract in case a new feature needs to be added or a bug needs to be corrected. Ethereum provides also the possibility of decentralised applications (DApps) and decentralised autonomous organisations (DAOs), which can create or enable users to vote for policies and regulations (\textbf{Compliance}). 
+
+Ethereum can also be used as a private network. Approaches like sharding \cite{sharding}, side-chains \cite{sidechains} or choosing non-default values for the chain parameters can affect throughput, latency and drastically increase \textbf{Scalability} \cite{schaffer_eth_scalability}. Private Ethereum sidechains promise also to ensure confidentiality \cite{eth_sidechains_interop}. While researchers and developers recognise it as challenging and complex, some solutions to cross-chain \textbf{Interoperability} have been proposed by a number of private Ethereum approaches \cite{plasma,polkadot,ion}. On the other hand, the probability for successful partition-based attacks \cite{confidentiality_vs_integrity} increases in private, forkable DLT designs such as a private Ethereum blockchain, which increases the likelihood for violations of a distributed ledger’s immutability. Increased vulnerability for immutability violations reduces the integrity of a distributed ledger \cite{dlt_4}, which can affect the system's level of \textbf{Security} and damage consumers' \textbf{Trust}.
+
+\subsection{Comparison}
+\label{ssec:ca-comparison}
+
+To summarise the detailed description from the previous two subsections, in table \ref{tab:cacomparison} we provide an overview of each considered approach's degree of fulfilment of our DP requirements (table \ref{tab:dpreq}).
+
+Additionally, figure \ref{fig:cadp} displays where the personal DP requirements (table \ref{tab:dpreq}) are positioned in terms of their fulfilment by the considered approaches and table \ref{tab:classdpreq} displays their classification. However, this does not mean that Hyperledger cannot achieve Compliance and Trust, or there are not any proposed solutions to Ethereum's Scalability and Interoperability problems. It means that the personal DP requirement can be potentially fulfilled to a higher degree by Hyperledger Fabric (\textit{X} in figure \ref{fig:cadp} and table \ref{tab:classdpreq}) and Ethereum (\textit{Z} in figure \ref{fig:cadp} and table \ref{tab:classdpreq}), respectively.
+
+\begin{table}[H]
+    \centering
+\caption{Comparison of the considered approaches' degree of fulfilment of the requirements from table \ref{tab:dpreq}}
+    \label{tab:cacomparison}
+\begin{tabular}{|m{3.3cm}||m{3.8cm}||m{3.6cm}|m{3.6cm}|}
+\hline
+\rule{0pt}{4ex}\cellcolor{gray!15}\textbf{DP Requirement} & \rule{0pt}{4ex}\cellcolor{gray!15} \textit{\textbf{Hyperledger Fabric}} & \rule{0pt}{4ex}\cellcolor{gray!15} \textit{\textbf{Ethereum (public)}} & \rule{0pt}{4ex}\cellcolor{gray!15} \textit{\textbf{Ethereum (private)}}\\ [12pt]\hline\hline
+\rule{0pt}{4ex} Identifiability & \rule{0pt}{4ex}\hspace{48pt}high & \rule{0pt}{4ex}\hspace{38pt}medium & \rule{0pt}{4ex}\hspace{48pt}high\\ [12pt]\hline
+\rule{0pt}{4ex} Ownership & \rule{0pt}{4ex}\hspace{50pt}low & \rule{0pt}{4ex}\hspace{38pt}medium & \rule{0pt}{4ex}\hspace{38pt}medium \\ [12pt]\hline
+\rule{0pt}{4ex} Accessibility & \rule{0pt}{4ex}\hspace{38pt}medium & \rule{0pt}{4ex}\hspace{50pt}low & \rule{0pt}{4ex}\hspace{38pt}medium \\ [12pt]\hline\hline
+
+\rule{0pt}{4ex} Scalability & \rule{0pt}{4ex}\hspace{38pt}medium & \rule{0pt}{4ex}\hspace{50pt}low & \rule{0pt}{4ex}\hspace{38pt}medium \\ [12pt]\hline
+\rule{-2pt}{4ex} Interoperability & \rule{0pt}{4ex}\hspace{38pt}medium & \rule{0pt}{4ex}\hspace{50pt}low & \rule{0pt}{4ex}\hspace{38pt}medium \\ [12pt]\hline
+\rule{0pt}{4ex} Security & \rule{0pt}{4ex}\hspace{48pt}high & \rule{0pt}{4ex}\hspace{48pt}high & \rule{0pt}{4ex}\hspace{38pt}medium \\ [12pt]\hline
+\rule{0pt}{4ex} Traceability & \rule{0pt}{4ex}\hspace{48pt}high & \rule{0pt}{4ex}\hspace{48pt}high & \rule{0pt}{4ex}\hspace{48pt}high\\ [12pt]\hline
+\rule{0pt}{4ex} Trust & \rule{0pt}{4ex}\hspace{38pt}medium & \rule{0pt}{4ex}\hspace{48pt}high & \rule{0pt}{4ex}\hspace{38pt}medium\\ [12pt]\hline\hline
+
+\rule{0pt}{4ex} Compliance & \rule{0pt}{4ex}\hspace{38pt}medium & \rule{0pt}{4ex}\hspace{48pt}high & \rule{0pt}{4ex}\hspace{48pt}high\\ [12pt]\hline
+\rule{0pt}{4ex} Usability & \rule{0pt}{4ex}\hspace{38pt}medium & \rule{0pt}{4ex}\hspace{38pt}medium & \rule{0pt}{4ex}\hspace{38pt}medium\\ [12pt]\hline
+\end{tabular}
+
+    
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includesvg[width=\textwidth]{figures/venn-ca-dp.svg}
+    \caption{The requirements from table \ref{tab:dpreq} in relation to the considered approaches' features and characteristics}
+    \label{fig:cadp}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    
+    \caption{Classification of the requirements from table \ref{tab:dpreq}}
+    \label{tab:classdpreq}
+    
+\begin{tabular}{m{2.7cm} m{2.5cm} m{2cm}}
+&&\\
+\hspace{30pt}X & \hspace{30pt}Y & \hspace{25pt}Z \\ \hline
+\rule{0pt}{3ex}Scalability & \rule{0pt}{3ex}Identifiability & \rule{0pt}{3ex}Compliance \\ 
+Interoperability & Ownership & Trust \\ 
+                & Security & \\
+                & Traceability & \\
+                & Usability & \\
+\end{tabular}
+
+\end{table}
+\newpage
+
+\section{Considered Requirements}
+\label{sec:consideredrequirements}
+
+\textit{Q4: Which requirements are considered important by DLT-based DP approaches in healthcare and finance?} \newline
+
+In order to answer the question we will take a look at which requirements are considered important by the available literature on DLT in healthcare and finance, namely, what benefits do DLTs bring and also what challenges remain. 
+
+\subsection{Healthcare}
+\label{ssec:healthcare}
+
+The healthcare sector is a problem-driven, data- and personnel-intensive domain where the ability to access, edit and trust the data emerging from its activities are critical for the operations of the sector as a whole \cite{hasselgren2020blockchain}. The activities of health institutions are tightly interwoven and require effective interchange of consents, patient-related data and proofs, and reimbursements processes, which effectively means exchanging data between different institutions. At the same time, health institutions are mandated to protect the highly sensitive data that patients choose to share with them. 
+
+\subsubsection{Overview}
+\label{sssec:overview}
+
+In a detailed review of blockchain solutions in healthcare \cite{hasselgren2020blockchain}, it is suggested that to both maintain the patient’s privacy and exchange data with other institutions in the healthcare ecosystem, accessibility control, DP, data integrity and interoperability are crucial requirements. The traditional way of achieving access control commonly assumes trust between the owner of the data and the entities storing them. These entities are often servers fully entrusted for defining and enforcing access control policies. Interoperability is necessary for coordination, cooperation and optimisation of the health of patients. DP can deliver auditability, traceability and transparency in EHR, and help achieve trust in EHR software system. The authors argue that many of the currently existing issues in healthcare like unauthorised sharing, robbery of sensitive data, malpractices within the healthcare ecosystem, overall exploitation of trust, counterfeit drugs, etc., can be improved through blockchain. 
+
+In the same study, the processes within the targeted blockchain systems were mostly focused on sharing, storage, exchange and access of medical data, aligning with our definition of DP, thereby providing excellent source of knowledge as to which of our DP requirements are considered important in the available literature on DLT in healthcare. The study identified that 35\% of the reviewed publications focused on improving access control, 27\% discussed solutions for the interoperability challenges, and 12\% targeted the ability to improve DP overall and 28\% of the included publications proposed increasing data integrity just by benefiting of the blockchain's key characteristic of immutability.
+
+It is important to note, that, where defined, the studies mostly consider permissioned designs. Public permissioned blockchains appear to be the preferred design choice, since the healthcare domain deals with highly sensitive data, which usually entails that a limited number of entities should have access, a public permissioned blockchain may be more appropriate than a public permissionless and private, in order to ensure that data is not accessible by those who have no view rights and also to comply with current health and personal data regulations.
+
+As mentioned in the previous section, in all of the reviews that we analysed, the majority of solutions are based on Ethereum, followed by the Hyperledger Fabric framework. The utilisation of smart-contracts (or chaincodes in Hyperledger Fabric) partly explains why these are the mostly used platform for the proposed concepts. A smart-contract function, which often has the purpose of reducing third party interaction, has the potential of making health informatic processes more efficient. This choice of platform/framework correlates well with the overall popularity of blockchain platforms. The reasons for this can be both the attributes that are offered by the respective platform, but also the number of developers available with knowledge on each platform as well as the strong overall market position of Ethereum and Hyperledger. 
+
+Surprisingly, the most commonly used consensus algorithm turned out to be proof-of-work (PoW) \cite{holbl2018systematic}. Healthcare is an environment where the speed of transactions could be very important and PoW is a very slow consensus algorithm. PoW is also generally not used with permissioned chains where the actors are generally known (in this case, patients, physicians, institutions) and trust is easier to establish. Permissioned chains are usually more centralised (e.g., hospitals) than public networks where anybody can be a node and where PoW is the dominant consensus algorithm. The PoW is also a very computationally demanding algorithm. It would be impractical if hospitals would have to establish large computer centres just to mine the transactions. However, Ethereum may strengthen its position further as a blockchain network solution for healthcare in the future, since it is said to make a transition into proof-of-stake, which as a consensus algorithm, seems to fit around most of the discussed PoW limitations.
+
+\subsubsection{Benefits}
+\label{sssec:benefits}
+
+Another comprehensive literature review \cite{agbo2019blockchain} suggests that blockchain characteristics (or DLT in general) like decentralisation, improved data security, data ownership, availability, trust and data verifiability are clearly beneficial in healthcare applications. 
+
+Blockchain can become that decentralised health data management backbone form where all the stakeholders can have controlled access to the same health records, without anyone playing the role of central authority over the global health data \cite[p.7]{agbo2019blockchain}. The fact that the information in the blockchain is replicated among all the nodes in the network creates an atmosphere of traceability and openness, allowing healthcare stakeholders, and in particular the patients, to own their data and be in control of how their data is used, by whom, when and how, thereby enabling data provenance.
+
+Additionally, compromising any one node in the blockchain network does not affect the state of the ledger since the information in the ledger is replicated among multiple nodes in the network. Therefore, by its nature, blockchain can protect healthcare data from potential data loss, corruption or security attacks. Also, the immutability property of blockchain which makes it impossible to alter or modify any record that has been appended to the blockchain aligns very well with the requirements for storing, sharing and tracing access of healthcare records. 
+
+Furthermore, since the identities of the patients in a blockchain are pseudonymised through the use of cryptographic keys, the health data of patients may be shared among healthcare stakeholders without revealing the identities of the patients. In many studies smart contracts are also considered a feature, which can be used to program the rules that allow the patients to be in control of how their health records are shared or used. This is particularly relevant to the European General Data Protection Regulation (GDPR) which prohibits the processing of sensitive personal data of patients unless explicit consent is given, or specific conditions are met \cite{foglia2020patients}.
+
+\subsubsection{Challenges}
+\label{sssec:challenges}
+
+Some identified challenges to the development of DLT-based applications include interoperability, security and privacy, scalability, speed and patient engagement \cite{kamel2018geospatial}.
+
+The interoperability challenge stems from the fact that there is not yet an existing standard for developing DLT-based healthcare applications; therefore, applications developed by different vendors or on different platforms may not be able to interoperate. However interoperability is not a challenge specific to DLT per se; rather, it is a common challenge when adopting any technological innovation.
+
+With regards to the security and privacy of DLT-based healthcare applications, there is a concern that despite the encryption techniques employed, it could still be possible to reveal the identity of a patient in a public blockchain by linking together sufficient data that are associated to that patient \cite{radanovic2018opportunities}. In addition, there is also the potential risk of security breaches that could arise from intentional malicious attacks to the healthcare blockchain by criminal organisations or even government agencies that could compromise the privacy of the patients. The private keys that are used for data encryption and decryption in blockchain are also prone to potential compromise which could result in unauthorised access to the stored health data.
+
+Furthermore, there is the concern that the immutability property of blockchain does not augur well with the GDPR’s “right to be forgotten,” which is part of the European Union General Data Protection Regulation which stipulates that the user has the right to request for the complete erasure of the user’s data \cite{foglia2020patients}. Since the immutability of blockchain ensures that data once saved to the blockchain cannot be deleted or altered, it could prove counterproductive when it is desirable to completely wipe out the medical history of a patient.
+
+Scalability of blockchain-based healthcare solutions is a major challenge especially in relation to the volume of data involved. It is not optimal, or even practicable in some cases, to store the high-volume biomedical data on blockchain as this is bound to cause serious performance degradation. There is also the problem of speed as the blockchain-based processing can introduce some significant latency. For example, the validation mechanism in the current set-up of the Ethereum blockchain platform necessitates all the nodes in a network to participate in the validation process \cite{yli2016current}. This incurs considerable processing delay, especially if the data load is significant.
+
+One more challenge is how to engage patients in the management of their data on blockchain. Patients, especially the elderly and the young, may not be interested or able to participate in the management of their health data \cite{radanovic2018opportunities}.
+
+Other challenges facing the adoption of blockchain in healthcare include computational overhead and the uncertainty about who is responsible for the cost of technology implementation and who profits from it \cite{engelhardt2017hitching,uddin2018continuous}. Barriers to adopting blockchain in the health care sector include immaturity of the technology itself, insufficient skills to understand and implement it, lack of buy-in, and lack of clear return on investment \cite{mamoshina2018converging}. The lack of buy-in goes back to the unfamiliarity of blockchain, the negative attitudes of physicians toward the use of blockchain \cite{zhao2018efficient}, and the fact that not all the patients are interested in managing their health records \cite{kamel2018geospatial}. 
+
+With blockchain technology, transactions are processed and verified by an automated programmable logic with predefined rules, which reduces transaction costs (i.e. effort and time spent on bureaucracy) \cite{roman2018blockchain,zhang2018fhirchain}. The complex or computation-intense systems needed in healthcare are not the best use cases for DLT \cite{keele2007guidelines}, since performance, real-time communication, coordination, data sharing, and medical service availability are critical in life-threatening situations \cite{kamel2018geospatial}.
+
+\subsection{Finance}
+\label{ssec:finance}
+
+\subsubsection{Overview}
+\label{sssec:f-overview}
+
+Recent developments have seen the creation of digital currencies like Bitcoin, which combine new currencies with decentralised payment systems. Although the monetary aspects of digital currencies have attracted considerable attention, the distributed ledger underlying their payment systems is a significant innovation. As with money held as bank deposits, most financial assets today exist as purely digital records. This opens the possibility for DLTs to transform the financial system more generally.
+
+In the financial sector, such as inter-bank payment and global financial transactions, generally a permissioned DLT is used \cite{yoo2017blockchain}. Because of the nature of finance, reliability, stability and efficiency are priorities. Blockchains based on a permissioned DLT where only authorised individuals can participate, are preferred. This type of DLT design has a consensus mechanism that ensures the authenticity of the transaction, so that only a small number of specific groups can participate to offset the problems of permissionless systems. First, it is to secure technological development and standardisation. Permissionless DLTs are difficult to standardise because of the lack of new standard method owing to technological development, but permissioned designs are easy to agree and accept technical standards among participants. Additionally, this type can achieve efficiency and independence. Permissionless DLTs have the advantage that there is no specific power or reliance agency intervention, but the efficiency structure is lower compared to the permissioned type in consensus structure. Furthermore, in the case of the permissioned type, the transaction can be changed or modified by mutual agreement, whereas in permissionless systems it is not possible to modify the transaction recorded in the spreadsheet and can only be corrected by reverse trading. In this respect, the financial sector more often considers the adoption of permissioned DLT designs \cite{yoo2017blockchain}.
+
+\subsubsection{Benefits}
+\label{sssec:f-benefits}
+
+At the beginning of the blockchain hype, financial organisations are skeptical about using the new technology. However, it is increasingly obvious how much money could be saved by processing the enormous amounts of transactions faster and more secure with less dependency on paper. Old communication processes by mail and fax for setting up syndicated loans or in the trade finance area, for example, could vanish with the help of blockchain. Inter-bank and cross-border payments and settlements could take advantage of high transaction speeds with less intermediates by using cryptocurrencies.
+
+Blockchain has the potential to be an intermediatory platform for creating trust between different parties. Counterparty verification, which is another crucial component in the banking business, could be simplified and made more secure. It will benefit from anti-money laundering algorithms implemented in smart contract logic combined with blockchain’s security protocols for data protection. With regard to GDPR, data could even remain private in a customer’s private blockchain “wallet” if necessary \cite{bettio2019hyperledger}.
+
+One research paper, investigating the changes in the financial sector caused by blockchains \cite{yoo2017blockchain}, suggests that, by using blockchain, major banks succeeded in the project of storing and co-management of the consumer identification information. It is a system that identifies the customer’s real name, address, contact details and purpose of financial transactions so that the financial products and services provided by the financial company are not used in illegal activities such as money laundering.
+
+Another promising effect of the introduction of the blockchain is that both the time and cost can be reduced by international transactions. If blockchains are introduced into international transactions, the payment, settlement and payment processing will be faster, which will reduce counterparties and liquidity risk. The strength of the transaction service provided by FinTech is shortened costs and time. 
+
+Furthermore, smart contract means that documents containing various contracts or information that are used offline can be safely recorded online so that contract information and information can be checked at any time and place. For example, it is possible to upload and sell information on various derivative contracts as well as personal information (e.g. car accident history and mileage, property ownership, etc.).
+
+According to another study \cite{bettio2019hyperledger}, there are generally two main perspectives, from which to look at these technologies, in context of the financial services industry - focus on the payment options or focus on smart contracts and the distributed nature of DLTs.
+
+The second perspective focuses more on the functional aspects in a distributed ledger, namely smart contracts and the opportunity to manage personal data and access rights. Smart contracts can be used to implement business logic inside a distributed ledger and define processes as standards for all participating parties. Due to the digital nature of these implementations, smart contracts have the potential to speed up processes and achieve better adherence to contracts by algorithmically defining the intentions of processes. Ethereum is an example of a public blockchain that can carry smart contracts, which subsequently enables other blockchains to be built on top of the Ethereum blockchain with their own rules and methods. On the other hand, Ethereum itself permits payment between different parties and is therefore also part of the first perspective mentioned above.
+
+Worldwide transactions with untrusted third parties and transactions that require perfect anonymity are the primary selling points. Blockchain’s protection against forgery due to hash keys and certificate-based encryption bundled with its customisable agreement and endorsement policies to determine whether a transaction is valid makes it suitable for many applications. Another important point is the immutability of the blockchain itself, meaning it is impossible to delete or alter a transaction after it has taken place without everyone knowing it.
+
+Other potential benefits of DLTs from a financial perspective mentioned in the literature \cite{fosso2020bitcoin} include: reduced cost and accuracy of record-keeping, reduced fraud, more secure, transparent and faster transactions, disintermediation, improved privacy and integrity, improved identity, space and service management, enhanced efficiency of financial services and customer trust, reduced corruption, open source, less physical infrastructure needed for the transfer of data and services.
+
+\subsubsection{Challenges}
+\label{sssec:f-challenges}
+
+As technology develops, consumer needs and related environments are changing. At the same time, there is an increased opportunity for individuals to be infringed by information such as hacking, and there is a strong need for blockchain technology because of the efforts of institutions trying to defend hacking. To encourage market movements, the government and related organisations should recognise the power of blockchains in individual and business transactions, public services, etc., and support them through development of original technologies and finding out best practices. However, the literature \cite{fosso2020bitcoin} suggests that many practical challenges remain in implementing blockchain solutions like, for example, limited understanding and adoption of DLTs, cost and managerial overhead, lack of government regulation, regulatory compliance issues, identity verification concerns, difficulties in illegal practices detection and tracking, scalability and throughput concerns, high computational speed and processing power demand, performance, transaction speed, network size and bandwidth concerns, high energy consumption, usability, etc. Apart from the general blockchain issues, DLT approaches for personal financial information can face challenges in terms of limited cooperation between institutions and participants, rapid transformation of financial systems, reluctance to agree to standards, compliance, intellectual property, system stability, resilience and security concerns, etc. 
+
+\subsection{Comparison}
+\label{ssec:cr-comparison}
+
+The analysis of the benefits and challenges that DLTs can bring in the domain of healthcare and finance further underline the differences we discussed in section \ref{ssec:comparison}. Requirements such as \textbf{Scalability}, \textbf{Interoperability}, \textbf{Accessibility} and \textbf{Compliance} have nuances. In addition, information availablity in emergency situations, consumer-institution trust and sensitivity of the data are much more important in healthcare, compared to finance. On the other hand, the attention in the domain of finance is much more focused on transaction time and cost reduction, crime and fraud prevention, as well as disintermediation (see table \ref{tab:classucdp}).
+
+\begin{figure}[H]
+    \centering
+    \includesvg[width=11cm]{figures/venn-uc-dp.svg}
+    \caption{ An overview of the requirements considered important by the literature on DLT-based DP approaches in healthcare and finance}
+    \label{fig:ucdp}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+\caption{Classification of the requirements acquired from answering \textit{Q4}}
+    \label{tab:classucdp}
+\begin{tabular}{m{4cm} m{4cm} m{4cm}}
+&&\\
+\hspace{40pt}A & \hspace{40pt}B & \hspace{40pt}C \\ \hline
+\rule{0pt}{3ex}Emergency & \rule{0pt}{3ex}Smart-contracts & \rule{0pt}{3ex}Cost Reduction \\ 
+Responsibility & Verifiability & Corruption Reduction\\ 
+Patient Engagement & Standardisation & Crime Reduction\\
+                & Transparency & Transaction Speed\\
+                & Decentralisation & Disintermediation\\
+                & Immutability & \\
+                & Efficiency & \\
+                & Authenticity & \\
+                & Comp. Resources & \\
+                & Non-repudiation & \\
+                & Consistency & \\
+                & Stability & \\
+\end{tabular}
+
+\end{table}
+%-----------------------------
+
+\section{DLT Characteristics}
+\label{sec:dltcharacteristics}
+
+Answering \textit{Q4} helped to gaining understanding of the requirements and characteristics of DLTs, that are considered important in the available literature on healthcare and finance. However, before we get to the \textit{RQ}, we firstly need to take a closer look at the characteristics of DLTs and how they are defined. \newline 
+
+As mentioned in section \ref{ssec:propertiesandcharacteristics}, the 6 DLT properties consist of 40 different DLT characteristics \cite{dlt_4}. Based on the important requirements, acquired through answering \textit{Q4}, we identified 30 out of those 40 characteristics as significant for our further investigation of DLT's suitability for DP. We further label 7 of them as "primary", due to their direct correspondence with our DP requirements and the other 23 as "secondary", which either further influence our fundamental personal DP requirements (table \ref{tab:dpreq}) or relate to the benefits, challenges and requirements, considered important by the available literature in healthcare and finance (table \ref{tab:classucdp}). \newline
+
+
+\begin{figure}[H]
+    \centering
+    \includesvg[pretex=\footnotesize,width=\textwidth]{figures/venn-dlt.svg} 
+    \caption{Overview of the selected DLT characteristics and the position of our considered approaches}
+    \label{fig:dlt}
+\end{figure}
+
+The 7 "primary" DLT characteristics (see table \ref{tab:primarydltchar}) correspond directly to some of our defined DP requirements. The other 23 "secondary" DLT characteristics (see table \ref{tab:seconddltchars}) that we identified are rather concrete and specific. Furthermore, our DP requirements (table \ref{tab:dpreq}) can be influenced by one or more DLT characteristics. In the following section \ref{sec:mapping} we aim to present a mapping and display which DLT characteristics seem to be related to which DP requirements.  
+%primary chars
+\begin{table}[H]
+    \centering
+    \caption{Primary DLT Characteristics and their definitions (N. Kannengießer et al. \cite{dlt_4})}
+    \label{tab:primarydltchar}
+\begin{tabular}{|m{5cm}|m{10cm}|}
+\hline
+\cellcolor{gray!15}\textbf{Primary Characteristic} & \cellcolor{gray!15}\textbf{Description} \\ \hline\hline
+User Unidentifiability & \rule{0pt}{2ex}The difficulty of mapping senders and recipients in transactions to identities \\ \hline
+Transaction Content \newline Visibility & The ability to view the content of a transaction in a DLT design \\ \hline
+Traceability & The extent to which transaction payloads (e.g., assets) can be traced chronologically in a DLT design\\ \hline\hline
+Scalability & The capability of a distributed ledger to efficiently handle decreasing or increasing amounts of required resources \\ \hline\hline
+Interoperability & The ability to interact between distributed ledgers and with other external data services \\ \hline\hline
+Compliance & The alignment of a distributed ledger and its operation with policy requirements (e.g., regulations or industry standards) \\ \hline\hline
+Ease of Use & The simplicity of accessing and working with a distributed ledger \\ \hline
+\end{tabular}
+
+    
+\end{table}
+%secondary chars
+
+
+\begin{table}[H]
+    \centering
+
+    \caption{Secondary DLT Characteristics and their definitions (N. Kannengießer et al. \cite{dlt_4})}
+    \label{tab:seconddltchars}
+\begin{tabular}{|m{5cm}|m{10cm}|}
+\hline
+\cellcolor{gray!15}\textbf{Secondary Characteristic} & \cellcolor{gray!15}\textbf{Description} \\ \hline\hline
+Node Controller Verification & The extent to which the identity of validating node controllers is verified prior to joining a distributed ledger \\ [12pt]\hline\hline
+Resource Consumption & The computational efforts required to operate a distributed ledger (e.g., for transaction validation, block creation, or storing the distributed ledger) \\ [12pt]\hline
+Throughput & The maximum number of transactions that can be appended to a distributed ledger in a given time interval \\ [12pt]\hline\hline
+Maintainability & The degree of effectiveness and efficiency with which a distributed ledger can be kept operational \\ [12pt]\hline
+Token Support & The possible uses of tokens within a distributed ledger (e.g., security token, stable coin, or utility token) \\ [12pt]\hline
+Turing-complete \newline Smart Contracts & The support of Turing-complete smart contracts within a DLT design \\ [12pt]\hline\hline
+\rule{0pt}{4ex}Confidentiality & \rule{0pt}{3ex}The degree to which unauthorised access to data is prevented \\ [12pt]\hline
+Integrity & The degree to which transactions in the distributed ledger are protected against unauthorised (or unintended) modification or deletion \\ \hline
+
+\end{tabular}
+
+\end{table}
+
+\begin{table}[H]
+    \centering
+\caption{Secondary DLT Characteristics and their definitions continued (N. Kannengießer et al. \cite{dlt_4})}
+    \label{tab:seconddltcharscontinued}
+\begin{tabular}{|m{5cm}|m{10cm}|}
+\hline
+Availability & The probability that a distributed ledger is operating correctly at any point in time \\ [12pt]\hline
+\rule{0pt}{4ex}Non-Repudiation & \rule{0pt}{4ex}The difficulty of denying participation in transactions \\ [12pt]\hline
+Durability & The property that data committed to the distributed ledger will not be lost \\ [12pt]\hline
+Authenticity & The degree to which the correctness of data that is stored on a distributed ledger can be verified \\ [12pt]\hline
+Consistency & The absence of contradictions across the states of the ledger maintained by all nodes participating in the distributed ledger \\ [12pt]\hline
+Censorship Resistance & The probability that a transaction in a distributed ledger will be intentionally aborted by a third party or processed with malicious modifications \\ [12pt]\hline
+Reliability & The ability of a system or component to perform its required functions under stated conditions for a specified time \\ [12pt]\hline
+Strength of Cryptography & The difficulty of breaking the cryptographic algorithms used in the DLT design \\ [12pt]\hline\hline
+Degree of Decentralisation & The number of independent validating node controllers reduced by the number of controllers that control more than average validating nodes divided by the total number of node controllers in the network. \\ [12pt]\hline
+Incentive Mechanism & A structure in place to motivate node behavior that ensures viable long-term operation of a distributed ledger (e.g., by contributing computational resources) \\ [12pt]\hline
+Liability & The existence of a natural or legal person that can be subjected to litigation with respect to the distributed ledger \\ [12pt]\hline
+Auditability & The degree to which an independent third party (e.g., state institution, certification authority) can assess the functionality of a distributed ledger \\ [12pt]\hline\hline
+Support for \newline Constrained Devices & The extent to which devices with limited computing capacities (e.g., sensor beacons) can participate in a distributed ledger \\ [12pt]\hline
+Transaction Fee & The price transaction initiators can or must pay for the processing of transactions \\ [12pt]\hline
+Ease of Node Setup & The ease of configuring and adding a new (or previously crashed) node to the distributed ledger \\ [12pt]\hline
+\end{tabular}
+
+    
+\end{table}
+
+
+\section{Mapping}
+\label{sec:mapping}
+
+\textit{RQ: What are the characteristics of DLTs that make them suitable for personal data provenance in healthcare and finance?} \newline
+
+The DLTs' characteristics that we labeled as "primary" can be easily mapped to our initial DP requirements, due to their similar definitions and concerns (figure \ref{fig:mapprimary}). From the mapping we can conclude that most of our DP requirements can be addressed, influenced by or are generally considered important by DLT approaches and directly correspond to some characteristics. However, by analysing the primary relationships together with the secondary (figure \ref{fig:mapall}), we can gain a better understanding of both which DP requirements DLTs 'prefer' to fulfill and which DLT characteristics are of greater importance for DP.
+
+%primary
+\begin{figure}[H]
+    \centering
+    
+    \includesvg[pretex=\footnotesize,width=\textwidth]{figures/map-primary.svg}
+    \caption{Mapping of the primary relationships between the requirements form table \ref{tab:dpreq} and the characteristics from tables \ref{tab:primarydltchar} and \ref{tab:seconddltchars}}
+    \label{fig:mapprimary}
+\end{figure}
+
+%all
+\begin{figure}[H]
+    \centering
+    \caption{Mapping of all relationships between the requirements form table \ref{tab:dpreq} and the characteristics from tables \ref{tab:primarydltchar} and \ref{tab:seconddltchars}}
+    \includesvg[pretex=\footnotesize,width=\textwidth]{figures/map-all.svg}
+    
+    \label{fig:mapall}
+\end{figure}
+
+\subsection{Influenced Requirements}
+\label{ssec:influencedrequirements}
+
+The mapping in figure \ref{fig:mapall} shows us that DLTs can potentially satisfy all of our DP requirements to some degree. It immediately comes to attention that the \textbf{Usability} and System level DP requirements \textbf{Scalability}, \textbf{Traceability} and especially \textbf{Security} and \textbf{Trust} are strongly influenced by a great number of DLT characteristics. 
+
+\textbf{Scalability}, as mentioned in previous sections, is a requirement of great importance in both use cases, discussed in this paper. It is influenced by a number of characteristics: the computational efforts required to operate a distributed ledger (\textit{Resource Consumption}); the maximum number of transactions that can be appended in a given time interval (\textit{Throughput}); the degree of effectiveness and efficiency with which the network can be kept operational; the ability of the technology to interact with other DLTs and external data services (\textit{Interoperability}); the ease of working with and configuring or adding new nodes to the network (\textit{Ease of Use}, \textit{Ease of Node Setup}); as well as having a token to support various services and features (\textit{Token Support}).
+
+\textbf{Interoperability}, as previously mentioned, remains one of the biggest challenges. It is influenced by the extent to which devices with limited computing capacities can participate in the network (\textit{Support of Constrained Devices}) and more importantly, by the DLT design's ability to support smart contracts (\textit{Turing-complete Smart Contracts}).
+
+\textbf{Traceability} and provenance are often used synonymously. The possible use of tokens within the DLT (\textit{Token Support}), the DLT's ability to interact with other systems (\textit{Interoperability}), the difficulty of denying participation in transactions (\textit{Non-repudiation}) and the support of devices with limited computing capacities (\textit{Support of Constrained Devices}) positively influence the ability to trace information in the system.
+
+\textbf{Security} is one of the main advantages that DLTs propose. This is the second most influenced DP requirement and is related to 11 DLT characteristics, namely: the ability to view the content of a transaction in a DLT design (\textit{Transaction Content Visibility}); the property that data committed to the distributed ledger will not be lost (\textit{Durability}); the degree to which unauthorised access to data is prevented (\textit{Confidentiality}); The degree to which transactions in the distributed ledger are protected against unauthorised modification or deletion (\textit{Integrity}); the probability that a distributed ledger is operating correctly at any point in time (\textit{Availability}); the degree to which the correctness of data that is stored on a distributed ledger can be verified (\textit{Authenticity}); the absence of contradictions across the states of the ledger maintained by all nodes participating in the distributed ledger (\textit{Consistency}); the degree of effectiveness and efficiency with which a distributed ledger can be kept operational (\textit{Maintainability}); as well as the previously mentioned characteristics such as \textit{Scalability}, \textit{Throughput} and \textit{Turing-complete Smart Contracts}.
+
+What DLTs can bring in DP is \textbf{Trust}. Out of the 6 properties of DLTs, 3 of them have an impact on consumer's trust in the system - opaqueness, security and policy (3 properties, 19 characteristics). Opaqueness includes characteristics such as the difficulty of mapping senders and recipients in transactions to identities (\textit{User Unidentifiability}); the extent to which transaction payloads can be traced chronologically in a DLT design (\textit{Traceability}); the extent to which the identity of validating node controllers is verified prior to joining a distributed ledger (\textit{Node Controller Verification}); as well as \textit{Transaction Content Visibility}. The Security property includes characteristics such as the probability that a transaction in a distributed ledger will be intentionally aborted by a third party or processed with malicious modifications (\textit{Censorship Resistance}); the difficulty of breaking the cryptographic algorithms used in the DLT design (\textit{Strength of Cryptography}); the ability of a system or component to perform its required functions under stated conditions for a specified time (\textit{Reliability}); as well as the previously mentioned characteristics like \textit{Confidentiality}, \textit{Integrity}, \textit{Availability}, \textit{Authenticity}, \textit{Consistency}, \textit{Durability} and \textit{Non-repudiation}. The Policy property consists of characteristics such as degree to which an independent third party (e.g., state institution, certification authority) can assess the functionality of a distributed ledger (\textit{Auditability}); the alignment of a distributed ledger and its operation with policy requirements (e.g., regulations or industry standards) (\textit{Compliance}); the number of independent validating node controllers reduced by the number of controllers that control more than average validating nodes divided by the total number of node controllers in the DLT network (\textit{Degree of Decentralisation}); the existence of a structure in place to motivate node behavior that ensures viable long-term operation of a distributed ledger (\textit{Incentive Mechanism}) and the existence of a natural or legal person that can be subjected to litigation with respect to the distributed ledger (\textit{Liability}).
+
+Additionally, 5 of the DLT characteristics have an impact on the \textbf{Usability} requirement. These are \textit{Turing-Complete Smart Contracts, Support for Constrained Devices, Ease of use, Ease of Node Setup} and the price that transaction initiatiors can or must pay for the processing of transcations (\textit{Transaction Fee}).
+
+There remain 5 DP requirements, which are not influenced by as many DLT characteristics as the other half that we discussed. \textbf{Identifiability}, for example, is impacted by DLT's characteristics of \textit{User Unidentifiability, Traceability} and \textit{Throughput}. \textbf{Accessibility} is influenced by \textit{Transaction Content Visibility, Node Controller Verification} and the DLT's ability to support \textit{Turing-complete Smart Contracts}. \textbf{Ownership} can be influenced by the possible uses of tokens within the network (e.g., security token, stable coin, or utility token) and \textit{Smart Contracts} and \textbf{Compliance} is additionally influenced by the alignment of a distributed ledger and its operation with policy requirements and the existence of astructure in place to motivate node behavior that ensures viable long-term operation of a distributed ledger (\textit{Compliance} and \textit{Incentive Mechanism}). \newline
+
+\begin{comment}
+
+\begin{center}
+\begin{tabular}{m{3cm} m{4.5cm} }
+Requirement & Numer of Characteristics \\ \hline
+Trust & \hspace{110pt}19 \\ 
+Security & \hspace{110pt}11 \\ 
+Scalability & \hspace{115pt}8 \\
+Traceability & \hspace{115pt}6 \\
+Usability & \hspace{115pt}5 \\
+Interoperability & \hspace{115pt}3 \\
+Identifiability & \hspace{115pt}3 \\
+Accessibility & \hspace{115pt}3 \\
+Compliance & \hspace{115pt}3 \\
+Ownership & \hspace{115pt}2 \\
+\end{tabular}
+\end{center}
+
+
+\end{comment}
+
+\subsection{Influential Characteristics}
+\label{ssec:influencialcharacteristics}
+
+\begin{comment}
+\begin{center}
+\begin{tabular}{m{6cm} m{4.5cm} }
+Characteristic & Numer of Requirements \\ \hline
+TC Smart Contracts & \hspace{115pt}7 \\ 
+Interoperability & \hspace{115pt}4 \\ 
+Traceability & \hspace{115pt}3 \\
+Throughput & \hspace{115pt}3 \\
+Durability & \hspace{115pt}3 \\
+Transaction Content Visiblity & \hspace{115pt}3 \\
+Support for Constrained Devices & \hspace{115pt}3 \\
+Token Support & \hspace{115pt}3 \\
+User Unidentifiability & \hspace{115pt}2 \\
+Node Controller Verification & \hspace{115pt}2 \\
+Maintainability & \hspace{115pt}2 \\
+Non-Repudiation & \hspace{115pt}2 \\
+Confidentiality & \hspace{115pt}2 \\
+Integrity & \hspace{115pt}2 \\
+Availability & \hspace{115pt}2 \\
+Authenticity & \hspace{115pt}2 \\
+Consistency & \hspace{115pt}2 \\
+Compliance & \hspace{115pt}2 \\
+Incentive Mechanism & \hspace{115pt}2 \\
+Ease of Use & \hspace{115pt}2 \\
+Ease of Node Setup & \hspace{115pt}2 \\
+\dots & \hspace{115pt}1 \\
+\end{tabular}
+\end{center}
+\end{comment}
+
+From the mapping (see figure \ref{fig:mapall}) we can also observe that apart from the the "primary" characteristics, DLTs' ability to support \textit{Turing-complete Smart Contracts} is the most influential DLT characteristic for a successful DP approach, followed by DLTs' degree of \textit{Interoperability, Scalability, Traceability, Throughput}, etc. Rightfully so, smart contracts can be used to satisfy numerous requirements, which the considered approaches in our work do not claim to have as underlying features, such as \textbf{Accessibility}, \textbf{Ownership}, \textbf{Compliance} and higher \textbf{Traceability} and \textbf{Usability}. 
+
+The analysis of the mapping provides and overview as to which DLT characteristics are beneficial or suitable for personal DP in general. However, this work considers two specific use cases (healthcare and finance), which have their own requirements (table \ref{tab:classucdp}), and two approaches (Hyperledger Fabric and Ethereum), which do not exhibit all of the DLT characteristics that we have considered beneficial for personal DP (table \ref{tab:primarydltchar} and \ref{tab:seconddltchars}).\newline
+
+%\subsection{CA Characteristics to DP Requirements }
+%\label{ssec:ca-chars-to-dp-req}
+
+After analysing Hyperledger Fabric's and Ethereum's whitepapers, other available literature on the application of these approaches in healthcare and finance, as well as consulting with individuals with thorough knowledge about them, we concluded that out of the 30 previously selected DLT characteristics, Hyperledger Fabric and Ethereum exhibit 18 and 19 characteristics, respectively, 11 of which they share (table \ref{tab:RQ}). The characteristics, that are unique to each approach, we mapped to the DP requirements with a corresponding color, in order to gain an understanding in which areas the DLT designs excel and what benefits and trade-offs they can bring against each other. 
+
+What we observed is that, similarly to our previous analysis (section \ref{sec:consideredapproaches}), Hyperledger Fabric can provide potentially better \textbf{Identifiability, Scalability, Interoperability} and \textbf{Security} thanks to its characteristics such as \textit{Throughput}, \textit{Maintainability}, \textit{Node Controller Verification}, lower \textit{Resource Consumption}, \textit{Scalability}, \textit{Interoperability} and \textit{Confidentiality}, whereas Ethereum brings greater benefits in terms of \textbf{Trust} and \textbf{Compliance} thanks to its \textit{Token Support}, \textit{Transaction Content Visibility}, \textit{Censorship Resistance}, \textit{Availability}, \textit{Compliance}, higher \textit{Degree of Decentralisation}, \textit{Incentive Mechanism} and \textit{Ease of Node setup} (figure \ref{fig:map-cac-dpr}). However, it is important to note that the right side characteristics in figure \ref{fig:map-cac-dpr} and \ref{fig:map-cac-ucr} describe the public version of Ethereum, as the private approach is quite similar to Hyperledger Fabric. Additionally, other features of the considered approaches like, for example, smart contract upgradability or side-chains and sharding are not represented through these characteristics.
+
+Hyperledger Fabric and Ethereum seem to also have an impact on the majority of the requirements that we acquired through answering \textit{Q4}. All of the common use case requirements are influenced by at least one of the considered approaches. It is important, however, that there seems to be no characteristic that can impact the Responsibility requirement in healthcare (figure \ref{fig:map-cac-ucr} and \ref{fig:cac-ucr}).
+
+
+\begin{table}[H]
+    \centering
+     \caption{Classification of characteristics, which make DLTs (Hyperledger Fabric and Ethereum) suitable for personal DP in the domain healthcare and finance}
+    \label{tab:RQ}
+    
+\begin{tabular}{m{5cm} m{4cm} m{5cm}}
+
+&&\\
+\hspace{20pt}Hyperledger Fabric & \hspace{40pt}Both & \hspace{35pt}Ethereum \\ \hline
+
+\rule{0pt}{3ex}Node Controller Verification & \rule{0pt}{3ex}User Unidentifiability & \rule{0pt}{3ex}Trans. Content Visibility\\
+Resource Consumption & Traceability & Token Support\\
+Scalability & TC Smart Contracts & Availability\\
+Throughput & Non-Repudiation & Censorship Resistance\\
+Interoperability & Durability & Compliance\\
+Maintainability & Integrity & Degree of Centralisation\\
+Confidentiality & Consistency & Incentive Mechanism\\
+ & Str. of Cryptography& Ease of Node Setup\\
+  & Auditability & \\
+   & Ease of Use & \\
+    & Transaction Fee & \\
+
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \caption{Mapping of the considered approaches' characteristics to the DP requirements from table \ref{tab:dpreq}}
+    \includesvg[pretex=\footnotesize,width=17cm]{figures/map-cac-dpr.svg}
+    
+    \label{fig:map-cac-dpr}
+\end{figure}
+
+ 
+
+%\subsection{CA Characteristics to UC Requirements }
+%\label{ssec:ca-chars-to-uc-req}
+
+
+\begin{figure}[H]
+    \centering
+    \caption{Mapping of the considered approaches' characteristics to the use case requirements from \ref{tab:classucdp}}
+    \includesvg[pretex=\footnotesize,width=17cm]{figures/map-cac-ucr.svg}
+    
+    \label{fig:map-cac-ucr}
+\end{figure}
+
+\begin{figure}[H]
+  \hspace{40pt}\includesvg[width=13cm]{figures/venn-cac-ucr.svg} 
+  \caption{Overview of the relationship between the use cases' requirements and the considered approaches' characteristics}
+  \label{fig:cac-ucr}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{Detailed classification of the requirements from table \ref{tab:classucdp}}
+    \label{tab:classdetailedreq}
+    
+\begin{tabular}{m{2.5cm} m{3cm} m{3cm} m{3cm} m{3cm} }
+
+&&\\
+\hspace{30pt}A & \hspace{30pt}B & \hspace{30pt}C & \hspace{30pt}D & \hspace{30pt}E \\ \hline
+
+\rule{0pt}{3ex}Responsibility & \rule{0pt}{3ex}Efficiency & \rule{0pt}{3ex}Smart Contracts & \rule{0pt}{3ex}Decentralisation & \rule{0pt}{3ex}Disintermediation \\ 
+ & Comp. Resources & Verifiability & & \\
+ & Cost Reduction & Standardisation & & \\
+ & Trans. Speed & Transparency & & \\
+ & & Immutability & & \\
+ & & Authenticity & & \\
+ & & Non-repudiation & & \\
+ & & Consistency & & \\
+ & & Stability & & \\
+
+\end{tabular}
+
+    
+\end{table}
+
+
+
+
+

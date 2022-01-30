@@ -1,0 +1,177 @@
+%% LaTeX2e class for student theses
+%% thesis.tex
+%% 
+%% Karlsruhe Institute of Technology
+%% Institute for Program Structures and Data Organization
+%% Chair for Software Design and Quality (SDQ)
+%%
+%% Dr.-Ing. Erik Burger
+%% burger@kit.edu
+%%
+%% See https://sdqweb.ipd.kit.edu/wiki/Dokumentvorlagen
+%%
+%% Version 1.3.5, 2020-06-26
+
+%% Available page modes: oneside, twoside
+%% Available languages: english, ngerman
+%% Available modes: draft, final (see README)
+\documentclass[oneside, english]{sdqthesis}
+
+%% ---------------------------------
+%% | Information about the thesis  |
+%% ---------------------------------
+
+%% Name of the author
+\author{Aleksandar Bachvarov}
+
+%% Title (and possibly subtitle) of the thesis
+\title{Where did my data go? Evaluation of Distributed Ledger Technologies' Suitability for Personal Data Provenance}
+
+%% Type of the thesis 
+\thesistype{Bachelor's Thesis}
+
+%% Institute and group names
+%% English variant
+\myinstitute{Institute of Information Security and Dependability (KASTEL)}
+\mygroup{Decentralized Systems and Network Services Research Group}
+%% For German, use the following:
+% \myinstitute{Institut für Informationssicherheit und Verlässlichkeit (KASTEL)}
+% \mygroup{Forschungsgruppe Dezentrale Systeme und Netzdienste}
+
+%% Group logo
+\grouplogo{dsn-logo}
+
+%% The reviewers are the professors that grade your thesis
+\reviewerone{Prof. Dr. Hannes Hartenstein}
+\reviewertwo{Prof. Dr. Ali Sunyaev}
+
+%% The advisors are PhDs or Postdocs
+\advisorone{Oliver Stengele, M.Sc.}
+%% The second advisor can be omitted
+\advisortwo{Jan Bartsch, M.Sc.}
+
+%% Please enter the start end end time of your thesis
+\editingtime{01. Oct 2021}{01. Feb 2021}
+
+\settitle
+
+%% --------------------------------
+%% | Settings for word separation |
+%% --------------------------------
+
+%% Describe separation hints here.
+%% For more details, see 
+%% http://en.wikibooks.org/wiki/LaTeX/Text_Formatting#Hyphenation
+\hyphenation{
+% me-ta-mo-del
+}
+
+%% --------------------------------
+%% | Bibliography                 |
+%% --------------------------------
+
+%% Use biber instead of BibTeX, see README
+\usepackage[citestyle=numeric,
+       style=alphabetic,
+       backend=biber,
+       date=long,
+       dateabbrev=true,
+       urldate=edtf,
+       seconds=true]{biblatex}
+       
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{xcolor,colortbl}
+\usepackage{graphicx}
+\usepackage{diagbox}
+\usepackage{comment}
+\usepackage{svg}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\addbibresource{thesis.bib}
+
+% Uniform representation of cited titles
+\DeclareFieldFormat*{citetitle}{``#1''}
+
+%% ====================================
+%% ====================================
+%% ||                                ||
+%% || Beginning of the main document ||
+%% ||                                ||
+%% ====================================
+%% ====================================
+\begin{document}
+
+%% Set PDF metadata
+\setpdf
+
+%% Set the title
+\maketitle
+
+%% The Preamble begins here
+\frontmatter
+
+\input{sections/declaration.tex}
+
+\setcounter{page}{1}
+\pagenumbering{roman}
+
+%% ----------------
+%% |   Abstract   |
+%% ----------------
+ 
+%% For theses written in English, an abstract both in English
+%% and German is mandatory.
+%%
+%% For theses written in German, a German abstract is sufficient.
+%%
+%% The text is included from the following files:
+%% - sections/abstract
+
+\includeabstract
+
+%% -----------------------
+%% |   Acknowledgments   |
+%% -----------------------
+
+%% The text is included from the following file:
+%% - sections/acknowledgments
+
+%\includeacknowledgments
+
+
+%% ------------------------
+%% |   Table of Contents  |
+%% ------------------------
+\tableofcontents
+
+%\listoffigures
+%\listoftables
+
+%% -----------------
+%% |   Main part   |
+%% -----------------
+
+\mainmatter
+
+\input{sections/introduction}
+\input{sections/fundamentals}
+\input{sections/method}
+\input{sections/results}
+\input{sections/discussion.tex}
+\input{sections/conclusion.tex}
+
+%% --------------------
+%% |   Bibliography   |
+%% --------------------
+
+%% Add entry to the table of contents for the bibliography
+\printbibliography[heading=bibintoc]
+
+%% ----------------
+%% |   Appendix   |
+%% ----------------
+
+
+\end{document}

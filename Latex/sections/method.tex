@@ -1,0 +1,95 @@
+\chapter{Method}
+\label{ch:method}
+
+In order to answer our \textit{RQ}, we conduct a literature review of the available studies on DP, DLT, healthcare, finance and DLT-based DP approaches for healthcare and finance. We consider a topic-centric \cite{topic-centric-approach} approach through a hermeneutic framework \cite{hermeneutic}, that describes the literature review process as fundamentally a process of developing understanding that is iterative in nature. Using the hermeneutic circle it describes the literature review process as being constituted by literature searching, classifying and mapping, critical assessment, and argument development. The hermeneutic approach emphasizes continuous engagement with and gradual development of a body of literature during which increased understanding and insights are developed. 
+
+The process we have followed consists of two phases: \textit{search and acquisition} and \textit{analysis and interpretation}, which describe two circles, respectively, that are mutually intertwined. The first circle consists of \textit{searching, sorting, selecting, acquiring, reading, identifying and refining} and is the first step of the second (bigger) circle, followed by the steps \textit{mapping and classifying, critical assessment, argument development, research problem/questions}. Through iterations on these circles we identified five stages, each of which poses a question (Q1-Q4, followed by the \textit{RQ}), whose answer provides a mapping (or classification) that, together with critical assessment and argument development, serves as a means to go deeper into the subject by posing a follow-up question. Going multiple times through the two phases and through the processes of individual stages, our main aim is to get an overview of the emerged relationships. This will help us to eventually determine which of the DLT characteristics make them suitable for personal DP in healthcare and finance and why, if at all, thereby answering our \textit{RQ} (see figure \ref{fig:flowchart}).
+
+To make sure that the studies included in the review were clearly related to the research topic, we defined detailed general guidelines for inclusion and exclusion criteria for each of our five stages. Taking this into account, we will take a look the following five stages and the four corresponding questions leading to our \textit{RQ}:\newline
+
+\textit{Q1: What are the fundamental requirements for a personal DP approach?}
+
+The scope of this stage is limited to the literature that (1) presents or describes solutions for research in DP systems within the computer science context, and/or (2) perform any type of quality analysis of these systems (surveys, taxonomies, ontologies, comparisons, categorisations, etc.) and/or (3) studies that discuss handling data of sensitive or private nature. Here we did not impose any restrictions on a specific domain of application.\newline
+
+\textit{Q2: What is the importance of individual DP requirements in terms of healthcare and finance?} 
+
+By identifying specific personal DP requirements through the selected literature in the first stage, here we searched for studies that (1) research or discuss the importance or relevance of a requirement, and/or (2) literature directly researching DP, where any of these personal DP requirements are mentioned. This time we include only papers in the domain of healthcare and finance. \newline
+
+\textit{Q3: Which are the preferred DLT approaches for DP in healthcare and finance and why?} 
+
+The scope of this stage is limited to literature on (1) DLTs in the domain of (2) healthcare and finance.\newline
+
+\textit{Q4: Which requirements are considered important by DLT-based DP approaches in healthcare and finance?} 
+
+The scope of this stage is limited to literature on (1) DLTs in the domain of (2) healthcare and finance.\newline
+
+\textit{RQ: What are the characteristics of DLTs that make them suitable for personal data provenance in healthcare and finance?} 
+
+Finally, in stage five we make a selection of papers on DLTs while looking for those which specially tackled the (1) considered approaches or (2) use cases, or (3) perform any type of quality analysis of these systems (surveys, taxonomies, ontologies, comparisons, categorisations) or (4) discuss DLT characteristics. By mapping the results from the previous stages to these DLT characteristics, we aim to answer the proposed \textit{RQ}.\newline
+
+The studies included in this work were identified through a thorough search for relevant published studies. Methods included conducting computer searches, "snowballing" procedures \cite{snowballing}, examining relevant bibliographies, searching reference sections of the studies included in the relevant papers to identify further relevant studies, and contacting relevant researchers and organisations. 
+
+We have summarised our selections of search strings based on some commonly used terms and acronyms for data provenance, individual requirements, healthcare, finance, etc. For example: "blockchain" OR "distributed ledger" AND "health" OR "review" (see table \ref{tab:searchstrings}).
+
+Using mainly Google Scholar, we found around 190 relevant studies. More than 50 are focused on DP and personal data, of which 8 discuss healthcare and 6 look at finance; another 33 papers in healthcare and 35 in finance helped identify important requirements for each use case respectively; there are 6 papers which compare and discuss different DLT approaches (2 in the form of taxonomies); around 60 studies investigate blockchain, where 21 are focused on applications in healthcare, 21 on applications in finance and 11 addressing features, differences and trade-offs between public and private approaches.
+
+We excluded pure discussion or opinion papers, tutorials, and studies that tackles provenance in a context other than the computer science field. We also exclude studies reported in a language other than English. It is also important to point out that the literature search was conducted without any time restrictions, considering that these topics are relatively new, and therefore, all literature in those areas was considered relevant to our study.
+
+
+\begin{table}[H]
+    \centering
+    \caption{Search strings}
+\begin{tabular}{|c|c|c|c|c|c|}
+\cline{2-6}
+    \multicolumn{1}{c|}{} &
+\cellcolor{gray!15}\textbf{Data} & 
+\cellcolor{gray!15}AND &
+\cellcolor{gray!15}\textbf{Term} &
+\cellcolor{gray!15}OR &
+\cellcolor{gray!15}\textbf{Type}
+\\ \hline
+\cellcolor{gray!15}& data provenance & \cellcolor{gray!15}& health      & \cellcolor{gray!15}& survey \\  
+\cellcolor{gray!15}& data lineage & \cellcolor{gray!15}& medical     & \cellcolor{gray!15}& review \\ 
+\cellcolor{gray!15}& transparency & \cellcolor{gray!15}& biomedical  & \cellcolor{gray!15}& systematic review \\ 
+\cellcolor{gray!15}& tracing & \cellcolor{gray!15}& clinical    & \cellcolor{gray!15}& literature review \\ 
+\cellcolor{gray!15}& tracking & \cellcolor{gray!15}& EHR         & \cellcolor{gray!15}& ontology \\ 
+\cellcolor{gray!15}&  & \cellcolor{gray!15}& EMR         & \cellcolor{gray!15}& taxonomy \\ 
+\cellcolor{gray!15}& identifiability & \cellcolor{gray!15}& PHR         & \cellcolor{gray!15}& case study \\ 
+\cellcolor{gray!15}& linkability & \cellcolor{gray!15}& patient         & \cellcolor{gray!15}& technical report \\ 
+\cellcolor{gray!15}& anonymity & \cellcolor{gray!15}& doctor         & \cellcolor{gray!15}& proof-of-concept \\
+\cellcolor{gray!15}& pseudonymity & \cellcolor{gray!15}& surgeon         & \cellcolor{gray!15}& report \\
+\cellcolor{gray!15}& ownership & \cellcolor{gray!15}& physician         & \cellcolor{gray!15}&  \\
+\cellcolor{gray!15}& access & \cellcolor{gray!15}&          & \cellcolor{gray!15}&  \\
+\cellcolor{gray!15}& scalability & \cellcolor{gray!15}& finance         & \cellcolor{gray!15}&  \\
+\cellcolor{gray!15}\rotatebox[origin=c]{90}{OR}& interoperability & \cellcolor{gray!15}& money         & \cellcolor{gray!15}&  \\
+\cellcolor{gray!15}& security & \cellcolor{gray!15}& bank         & \cellcolor{gray!15}&  \\
+\cellcolor{gray!15}& confidentiality & \cellcolor{gray!15}& fintech         & \cellcolor{gray!15}&  \\
+\cellcolor{gray!15}& integrity & \cellcolor{gray!15}& defi         & \cellcolor{gray!15}&  \\
+\cellcolor{gray!15}& availability & \cellcolor{gray!15}& payment         & \cellcolor{gray!15}&  \\ 
+\cellcolor{gray!15}& traceability & \cellcolor{gray!15}& consumer         & \cellcolor{gray!15}&  \\ 
+\cellcolor{gray!15}& trust & \cellcolor{gray!15}& customer         & \cellcolor{gray!15}&  \\ 
+\cellcolor{gray!15}& policies & \cellcolor{gray!15}&          & \cellcolor{gray!15}&  \\ 
+\cellcolor{gray!15}& law & \cellcolor{gray!15}&          & \cellcolor{gray!15}&  \\ 
+\cellcolor{gray!15}& regulation & \cellcolor{gray!15}&          & \cellcolor{gray!15}&  \\ 
+\cellcolor{gray!15}& usability & \cellcolor{gray!15}&          & \cellcolor{gray!15}&  \\ 
+\cellcolor{gray!15}& ease of use & \cellcolor{gray!15}&          & \cellcolor{gray!15}&  \\ 
+\cellcolor{gray!15}&  & \cellcolor{gray!15}&          & \cellcolor{gray!15}&  \\ 
+\cellcolor{gray!15}& blockchain & \cellcolor{gray!15}&          & \cellcolor{gray!15}&  \\ 
+\cellcolor{gray!15}& distributed ledger & \cellcolor{gray!15}&          & \cellcolor{gray!15}& \\
+\cellcolor{gray!15}&  & \cellcolor{gray!15}&          & \cellcolor{gray!15}&  \\ 
+\cellcolor{gray!15}& hyperledger fabric & \cellcolor{gray!15}&          & \cellcolor{gray!15}&  \\ 
+\cellcolor{gray!15}& ethereum & \cellcolor{gray!15}&          & \cellcolor{gray!15}& \\[0.3em]\hline
+\end{tabular}
+
+    
+    \label{tab:searchstrings}
+\end{table}
+
+\begin{landscape}
+\begin{figure}[H]
+    \centering
+    \includesvg[pretex=\scriptsize,width=23cm]{figures/Flowchart.svg}
+    \caption{Flowchart of the paper}
+    \label{fig:flowchart}
+\end{figure}
+\end{landscape}

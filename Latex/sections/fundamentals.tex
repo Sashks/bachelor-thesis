@@ -1,0 +1,108 @@
+\chapter{Fundamentals}
+\label{ch:Fundamentals}
+
+\section{Data Provenance}
+\label{sec:dp}
+
+\begin{minipage}\textwidth
+
+\textit{Data Provenance} (DP) - In this work we define DP as an approach/technology that can be used to record \textit{personal data}. This definition includes not only metadata, data origin and/or data operation, but also processes that act on data and agents that are responsible for those processes (sharing, storage, exchange, access). Most importantly, this should be achieved in a secure, trustworthy and traceable way, that ensures accountability and is in accordance to international laws and regulation, with the well-being of the consumer in mind. \newline
+
+\textit{Personal Data} - Any information relating to an identified or identifiable natural person ('data subject'); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person \cite{personal_data}.
+
+\end{minipage}
+
+%------------------------------------------------------------------------------------------
+
+\section{Distributed Ledger Technology}
+\label{sec:dlt}
+
+A distributed ledger (also called a shared ledger or distributed ledger technology or DLT) is a consensus of replicated, shared, and synchronised digital data geographically spread across multiple sites, countries, or institutions \cite{dlt_1}. Unlike with a centralised database, there is no central administrator \cite{dlt_60}.
+
+The distributed ledger database is spread across several devices (nodes) on a peer-to-peer network, where each replicates and saves an identical copy of the ledger and updates itself independently. The primary advantage is the lack of central authority. When a ledger update happens, each node constructs a new transaction, and then the nodes vote by consensus algorithm on which copy is correct. Once a consensus has been determined, all the other nodes update themselves with the new, correct copy of the ledger \cite{dlt_2}. Security is accomplished through cryptographic keys and signatures \cite{dlt_1}. The literature \cite{dlt_4} differentiates between: \newline
+%kannengießer dlt trade-offs
+
+DLT \textit{concepts} - describe the basic structure and functioning of DLT designs on a high level of abstraction. For instance, blockchain is a DLT concept describing the use of blocks that form a linked list. Each block contains multiple transactions that have been added into the block by nodes \cite{dlt_4}. \newline
+
+DLT \textit{designs} - specify an abstract description of DLT concepts by adding concrete values and processes for inherent DLT characteristics. There are important differences between DLT designs, which make them suitable for some applications and unsuitable for others \cite{dlt_4}.\newline
+
+DLT \textit{characteristics} - represent features of DLT designs, which are of technical or administrative nature. The technical characteristics constrain future changes of the administrative characteristics(e.g., lack of scalability regarding network size of a distributed ledger) \cite{dlt_4}.\newline
+
+DLT \textit{properties} - groups of DLT characteristics and shared by each DLT design. For instance, "throughput" and "scalability" are both associated with the DLT property "performance" \cite{dlt_4}. \newline
+
+The emergence of DLT, with strong support for data integrity, authenticity and provenance, has opened up the door of opportunities in different domains \cite{walmart,health_1,DP_storagesys,req_availability,scrybe}. With the increase in DLT application domains, the number of DLT designs has also increased steadily. These DLT designs vary from each other in many ways such as implementation, purpose, way of access, way of governance and so on \cite{dlt_3}. Therefore, it is important to understand the characteristics of DLT designs and their properties, in order to determine which are more advantageous and most importantly, which properties make them suitable (or not) for a particular use case and its specific requirements.
+
+%------------------------------------------------------------------------------------------
+
+\subsection{Designs}
+\label{ssec:designs}
+
+DLT designs can be instantiated as a \textit{public} or \textit{private}, which can be further divided into \textit{permissioned} and \textit{permissionless} \cite{dlt_private,dlt_public}. \newline
+
+\textit{Public} - DLT designs, where the underlying network allows arbitrary nodes to join and participate in the distributed ledger’s maintenance. For example, consumers can execute financial transaction without registration or verification of the nodes’ identities being required. Public DLT designs like, for example, Ethereum \cite{ethereum} are usually maintained by a large number of nodes. Owing to the large number of nodes in the network, each of which stores a replication of the ledger, public DLT designs achieve a high level of availability. To allow many (arbitrary) nodes to find consensus, public DLT designs should be well scalable to not deter performance when the number of nodes increases \cite{dlt_1}. \newline
+
+\textit{Private} - DLT designs, that engage a defined set of nodes, with each node identifiable and known to the other network nodes. Consequently, private DLT designs require verification of the nodes that join the distributed ledger. Private DLT designs like, for example, Hyperledger \cite{hyperledger} are often used if the public should not be able to access the stored data \cite{dlt_bott}. For example, physicians can use a common ledger in Healthcare to collaborate, but do not want to disclose the data to other colleagues or institutions not involved in the collaboration \cite{dlt_1}. \newline
+
+\textit{Permissioned} - when consensus finding is delegated to a subset of nodes (which is usually small). Since only selected nodes can validate new transactions or participate in consensus finding, fast consensus finding can be applied, which enables a throughput of multiple thousands of transactions per second \cite{dlt_castro}. Owing to the small number of nodes involved in consensus finding, they can reach finality, which means that all of a distributed ledger’s permitted nodes come to an agreement regarding the distributed ledger’s current state \cite{dlt_1}. \newline
+
+\textit{Permissionless} - when the nodes’ identity does not have to be known \cite{dlt_public}, because all of them have the same permissions. In permissionless DLT designs with a large number of nodes (e.g. Ethereum), consensus finding is usually probabilistic and does not provide total finality, because it is impossible to reach finality in networks that allow nodes to arbitrarily join or leave. Consequently, the consistency between all the nodes of a public, permissionless distributed ledger can, at a certain point in time, only be assumed with a certain probability. Furthermore, a transaction appended to a distributed ledger is only assumed to be immutably stored to a certain probability. In blockchains, this probability of a particular transaction’s immutability increases when new blocks are added to the blockchain \cite{bitcoin,dlt_1}. 
+
+%------------------------------------------------------------------------------------------
+
+\subsection{Properties and Characteristics}
+\label{ssec:propertiesandcharacteristics}
+
+N. Kannengießer et al. \cite{dlt_4} have extracted 277 DLT characteristics, which were eventually assigned to 40 master variables names and descriptions. These 40 resulting DLT characteristics (which we later discuss in more detail) were further grouped into 6 DLT properties:
+
+\begin{table}[H]
+    \centering
+    \caption{DLT Properties taken from N. Kannengießer et al. \cite{dlt_4} without listing the characteristics that each property includes}
+    \label{tab:dltproperties}
+
+\begin{tabular}{|m{2cm}|m{2.7cm}|m{10cm}|}
+\hline
+\hspace{4pt}\cellcolor{gray!15}\textbf{Property} & \cellcolor{gray!15}\textbf{Characteristic} & \cellcolor{gray!15}\textbf{Description} \\ \hline\hline
+{Opaqueness} & \rule{0pt}{3ex}\hspace{39pt}\vdots & The degree to which the use and operation of a distributed ledger cannot be tracked \\ [10pt]\hline\hline
+{Performance} & \rule{0pt}{3ex}\hspace{39pt}\vdots & The accomplishment of a given task on a distributed ledger under efficient use of computing resources and time\\ [10pt]\hline\hline
+{Flexibility} & \rule{0pt}{3ex}\hspace{39pt}\vdots & The degrees of freedom in deploying applications on and customising a distributed ledger \\ [10pt]\hline\hline
+{Security} & \rule{0pt}{3ex}\hspace{39pt}\vdots & The likelihood that functioning of the distributed ledger and stored data will not be compromised\\ [10pt]\hline\hline
+{Policy} & \rule{0pt}{3ex}\hspace{39pt}\vdots & The ability to guide and verify the correct operation of a distributed ledger\\ [10pt]\hline\hline
+{Practicality} & \rule{0pt}{3ex}\hspace{39pt}\vdots & The extent to which users of a distributed ledger can achieve their goals with respect to social and socio-technical constraints of everyday practice\\ [10pt]\hline
+                          
+\end{tabular}
+\end{table}
+%------------------------------------------------------------------------------------------
+
+\section{Blockchain}
+\label{sec:blockchain}
+
+The most commonly used data structure for distributed ledgers is the blockchain \cite{zhang2018towards}. Each block contains a set of records added to the ledger and is immutable once generated. A newly created block is inserted in the blockchain by linking it to the last block in the chain. To prevent tampering of information found in existing blocks, the integrity of each block can be verified using a hash function which takes into consideration all preceding blocks. Hence, in order to successfully alter an older block, one must also modify all following blocks, which is considered unfeasible or unlikely. This implies that the amount of trust in the information contained in a block depends on the block age (i.e., the number of blocks following it). Due to its strong guarantees, blockchains are the most prevalent form of storage for ledgers. 
+
+More recently, smart contracts have been introduced to support general applications beyond cryptocurrency. Smart contracts are programs automatically executed by the blockchain miners whenever their encoded conditions are triggered. Smart contracts are also transparent since they can be reviewed and agreed upon by the interacting parties prior to inserting them to the blockchain. Finally, the correct execution of smart contracts is guaranteed due to the immutability properties of a blockchain, which prevents it from being corrupted. Two notable systems which support smart contracts are Ethereum and Hyperledger.
+
+The scope of blockchain applications has increased from virtual currencies to financial applications to the entire social realm. Based on its applications, blockchain is delimited to Blockchain 1.0, 2.0, and 3.0 \cite{xu2019systematic}. \newline
+
+Blockchain 1.0 was related to virtual currencies, such as bitcoin \cite{bitcoin}, which was not only the most widely used digital currency but it was also the first application of blockchain technology \cite{mainelli2015sharing}. Blockchain 1.0 produced a great many applications, most of which were digital currencies and tended to be used commercially for small-value payments, foreign exchange, gambling, and money laundering. At this stage, blockchain technology was generally used as a cryptocurrency and for payment systems that relied on cryptocurrency ecosystems. \newline
+
+Blockchain 2.0
+Broadly speaking, Blockchain 2.0 includes Bitcoin 2.0, smart-contracts, smart-property, decentralised applications (Dapps), decentralised autonomous organisations (DAOs), and decentralised autonomous corporations (DACs) \cite{swan2015blockchain}. However, most people understand Blockchain 2.0 as applications in other areas of \textit{finance}, where it is mainly used in securities trading, supply chain finance, banking instruments, payment clearing, anti-counterfeiting, establishing credit systems, and mutual insurance. The financial sector requires high levels of security and data integrity, and thus blockchain applications have some inherent advantages. The greatest contribution of Blockchain 2.0 was the idea of using smart-contracts to disrupt traditional currency and payment systems. Recently, the integration of blockchain and smart contract technology has become a popular research topic in problem resolution. For example, Ethereum and Hyperledger have established programmable contract language and executable infrastructure to implement smart contracts. \newline
+
+Blockchain 3.0 is described as the application of blockchain in areas other than currency and \textit{finance}, such as in \textit{healthcare}, government, science, culture, and the arts \cite{swan2015blockchain}. Blockchain 3.0 aims to popularise the technology, and it focuses on the regulation and governance of its decentralisation in society. The scope of this type of blockchain and its potential applications suggests that blockchain technology is a moving target \cite{crosby2016blockchain}. Blockchain 3.0 envisions a more advanced form of “smart contracts” to establish a distributed organisational unit that makes and is subject to its own laws and which operates with a high degree of autonomy \cite{pieroni2018smarter}. The integration of blockchain with tokens is an important combination of Blockchain 3.0. Tokens are proofs of digital rights, and blockchain tokens are widely recognised thanks to Ethereum and its ERC20 standard. Based on this standard, anyone can issue a custom token on Ethereum and this token can represent any right or value. Tokens refer to economic activities generated through the creation of encrypted tokens, which are principally but not exclusively based on the ERC20 standard. Tokens can serve as a form of validation of any right, including personal identity, medical records, currency, receipts, keys, event tickets, rebate points, coupons, stocks, and bonds, etc. Consequently, tokens can validate virtually any right that exists within a society \cite{xu2019systematic}.
+
+%------------------------------------------------------------------------------------------
+
+\subsection{Hyperledger Fabric}
+\label{ssec:fabric}
+
+Hyperledger Fabric \cite{hyperledger} is a distributed ledger platform for running chaincode (smart contract in Hyperledger Fabric). It is a specific blockchain platform, which is optimised for a specific task such as tracking assets, transferring values, etc. The modular architecture delivers high degrees of resiliency, flexibility and confidentiality in design and implementation. The flexibility in design leads to achieving scalability, privacy, etc. Hyperledger Fabric is designed to support plugable implementations of a different functions and chaincodes (using Go, Java, JavaScript). Transactions in Hyperledger Fabric are private and confidential thanks to its channelisation features \cite{hl_channerlisation}. Rather than an open, permissionless system, Hyperledger Fabric offers a scalable and secure platform that supports private transactions and confidential contracts. This architecture allows for solutions developed with Hyperledger Fabric to be adapted for any industry, thus ushering trust, transparency, and accountability for institutions \cite{hl_84}.
+
+Other DLTs that were originally designed for ad-hoc, public use (where there is no privacy and no governance) had to be later significantly redesigned to add in support for permissions and privacy; Hyperledger Fabric was designed with these features as foundational. In this regard, Hyperledger Fabric has had a head start over many of the competing frameworks. For example, while there may be promise in some of the Ethereum 2.0 implementations, these are still mostly oriented to public network use \cite{hyperledger}.
+
+%------------------------------------------------------------------------------------------
+
+\subsection{Ethereum}
+\label{ssec:ethereum}
+
+Ethereum \cite{ethereum} is an open blockchain platform that allows anyone to build and use decentralised applications that run on blockchain technology. Financial interactions or exchanges could be carried out automatically and accurately using code running on Ethereum. It is a general purpose blockchain platform, which allows users to write their own algorithmic code and running customised logical processes. It was designed to be flexible and adaptable and has a powerful shared global infrastructure. The movement of assets around the network represents the ownership of property. In some ways, Ethereum is similar to that of Bitcoin, but there some technical differences between them. Bitcoin offers peer to peer electronic cash system, while Ethereum blockchain focuses on running the smart contract code of any decentralised application. Miners work to earn the crypto token Ether, this is also used to pay transaction fees and services in Ethereum network \cite{hl_84}. 
+
+The Ethereum network can be either public or private. Public DLT designs bring trust, security and transparency. Everything is recorded, public, and cannot be changed; also the more decentralised and active a public DLT design is, the more secure it becomes; and in terms of transparency - all data related to transactions is open to the public for verification.

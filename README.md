@@ -2,11 +2,16 @@
 
 Kollaboration mit AIFB
 
-To Discuss:
--
-- Final touches
-- Abstract in german
-- Presentation
+
+## Meeting 24.01.22 ##
+
+1. 2 Copys - Frau Hopprich
+
+2. 3 Signed docs
+
+3. Put everything in git
+
+4. Presentation - second half of feb
 
 ## Meeting 17.01.22 ##
 

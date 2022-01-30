@@ -1,0 +1,73 @@
+%% LaTeX2e class for student theses
+%% sections/evaluation.tex
+%% 
+%% Karlsruhe Institute of Technology
+%% Institute for Program Structures and Data Organization
+%% Chair for Software Design and Quality (SDQ)
+%%
+%% Dr.-Ing. Erik Burger
+%% burger@kit.edu
+%%
+%% Version 1.3.5, 2020-06-26
+
+\chapter{Discussion}
+\label{ch:Discussion}
+
+%% -------------------
+%% | Example content |
+%% -------------------
+
+
+\section{Principal Findings}
+\label{sec:PrincipleFindings}
+
+This research reveals 26 DLT characteristics (see table \ref{tab:RQ}), that make DLTs suitable for personal DP, which we identified through mappings (and classifications) of 2 DLT approaches' characteristics (Hyperledger Fabric and Ethereum) to 10 identified fundamental personal DP requirements (figure \ref{fig:map-cac-dpr}) and another 22 additional requirements (figure \ref{fig:map-cac-ucr}). The fundamental DP requirements (section \ref{sec:requirements}) we analysed through the lens of 2 different use cases (section \ref{sec:usecases}); the additional requirements we determined by analysing which features and characteristics were considered beneficial, challenging or generally important by the available literature on DLT-based DP in both use cases (section \ref{sec:consideredrequirements}). 
+
+What we found through the analysis, classifications and mappings in this work is that both considered approaches exhibit not only common, but also complementing features and characteristics as well, which make them suitable for different aspects of our use cases. While they share 11 out of the 30 selected characteristics, such as \textit{Smart Contracts, Non-repudiation, Integrity, User Unidentifiability, Traceability}, etc. (table \ref{tab:RQ}), they still have major differences mostly due to their design (permissioned and permissionless). What this means is that both considered approaches can achieve, for example, \textbf{Identifiability} of consumers and institutions in some way; or create \textbf{Ownership}, \textbf{Compliance}, \textbf{Accessibility} control and standardisation through smart contracts; or thanks to the ledgers' immutability, achieve high level of \textbf{Trust}, as patients and consumers know their data cannot be modified or deleted. 
+
+However, Hyperledger Fabric, as a permissioned DLT, provides \textit{Confidentiality} by design and verifies all nodes asking to join the network (\textit{Node Controller Verification}), which results in better \textbf{Identifiability} and allows for higher \textit{Throughput} and lower \textit{Resource Consumption}, because faster consensus mechanisms can be used. Together with its \textit{Maintainability} characteristic and higher \textit{Interoperability} than Ethereum, Hyperledger Fabric can provide better \textit{Scalability}. All these characteristics that permissioned designs exhibit make them (and Hyperledger Fabric in this case) highly suitable for keeping consumers medical or financial information confidential, as well as help achieve accountability in case of false treatment, fraud or money-laundering. Additionally, as the healthcare and financial domain deal with huge quantities of data, Hyperledger Fabric's high number of transactions per second makes it more suitable for DP in terms of efficiency, performance and availability in emergency situations, which can be crucial when patients' safety is at risk.
+
+Ethereum can also be used as a private system. However, in the mappings in our work we considered only the characteristics of the Ethereum's public permissionless design, as a comparison between two private approaches would not have made much sense in our case. What we concluded is that Ethereum's pseudonymous \textbf{Identifiability} can be beneficial, as anonymity fosters crime, but high \textbf{Identifiability} challenges privacy. Additionally, while Hyperledger Fabric comes with advantages with respect to practicality and performance, public permissionless design like Ethereum reach higher \textit{Degree of Decentralisation}, which helps eliminate the need for trusted central authority that has control over the global healthcare information or banking and financial services. Furthermore, public DLT designs are less dependent on \textbf{Interoperability} with other DLT designs or external services and have higher \textit{Availability} and \textit{Transaction Content Visibility}, which can provide more transparency and disincentivise corruption and fraud. However, Ethereum's issues with \textit{Confidentiality}, \textit{Scalability} and \textit{Interoperability} make it a hard case for personal DP, as the information involved is of sensitive and private nature and the domains discussed are dependant upon high transaction volume and big amounts of data shared between different individuals, institutions and organisations, where decentralisation might be good, but some level of authority is also necessary.
+
+In this work, one approach does not seem to totally surpass the other. The considered approaches seem to benefit from different characteristics, which leads to trade-offs between \textit{Confidentiality, Scalability}, higher \textit{Interoperability, Throughput} and accountability (Hyperledger Fabric) vs. \textit{Availability, Decentralisation} and \textbf{Trust} (Ethereum), which should be carefully considered when dealing with DP in different use cases such as healthcare and finance.
+
+\section{Implications for Practice}
+\label{sec:ImplicationsForPractice}
+
+Our research can assist practitioners in obtaining insights into the viability of Hyperledger Fabric, Ethereum or DLT designs, exhibiting similar characteristics, for applications and possible impact of DLTs in terms of personal DP in the domain of healthcare and finance. This work can aid the decision-making process of selecting DLT designs for application use cases, similar to ours, under the consideration of personal DP requirements and DLT characteristics. 
+
+Our mappings reveal trade-offs between permissioned and permissionless DLT designs, which are useful to be aware of potential benefits and drawbacks (\textit{Scalability} and \textit{Interoperability} vs \textit{Decentralisation} and \textbf{Trust}; \textit{User Unidentifiability} vs \textbf{Identifiability}; \textit{Confidentiality} vs \textit{Integrity}; \textit{Maintainability} vs \textit{Availability}) before developing an application in the discussed domains. Such assessments eventually facilitate avoidance of unsuitable DLT designs or unsuitable use cases and consequent waste of resources. To ensure that DLT's unique advantages can be achieved, a careful DLT design selection is necessary \cite{dehling2019security,dlt_4}.
+
+On one hand, blockchain solutions can help remove the need for central authority and protect consumers' medical and financial information from potential data loss, corruption or attacks; it can store, share and trace access without risk of data modification; it can use smart contracts to program rules that enable \textbf{Ownership}, \textbf{Compliance} and \textbf{Accessibility} control; it can help reduce the time and cost of international transactions; bring \textbf{Trust} between different parties and reduce the physical infrastructure needed for the transfer of data and services. 
+
+On the other hand, there is not yet an existing standard for developing DLT-based applications; there is the concern that the immutability property of blockchain does not augur well with the GDPR's "right to be forgotten"; there are the scalability issues where significant data load is involved like in healthcare and finance; also it is a challenge to engage patients in the management of their data; and there are also other challenges such as computational overhead; uncertainty about who is responsible for the cost of technology implementation and who profits from it; immaturity of the technology itself, insufficient skills to understand and implement it, energy consumption and others. Additionally, in healthcare, for example, the need for anonymity and patient consent can negatively impact the conducting of epidemiological research, which can harm patients in the long term.
+
+\section{Implications for Research}
+\label{sec:ImplicationsForResearch}
+
+Our analysis of Hyperledger Fabric and Ethereum characteristics' suitability for personal DP in the domain of healthcare and finance can be used to develop a better understanding of important aspects of the relationship between DLTs and personal DP. 
+
+The literature review, mappings and classifications proposed in this study offer useful insights into the research on Ethereum, Hyperledger Fabric, and personal DP in the field of healthcare and finance. They place all four concepts in one paper, making a comparative analysis easier for readers. In addition, the proposed definitions and findings can be used as a research agenda in Ethereum, Hyperledger Fabric, healthcare and finance orientations and related discussions, amid the perception that further research in this area should be aligned to their rapid development. 
+
+This work can serve as motivation for research on ways and means of overcoming the explored drawbacks and challenges of the considered approaches. Ethereum's suitability as a private network should be further investigated, together with the many proposed solutions in the literature for improvement of its \textit{Interoperability, Scalability} and other features that are beneficial for personal DP. Additionally, research on the \textbf{Interoperability} between different DLT designs in general is of great importance, as interoperable DLTs can increase flexibility and help leverage the benefits of different DLT designs while avoiding their drawbacks. For instance,  \textbf{Interoperability} enforces security and patient safety: the quality of the patient healthcare treatment is not depending on the quality of a specific software solution (the so-called vendor lock-in effect). It is a fundamental requirement for the health care system to derive the societal benefits promised by the adoption of electronic medical records (EMRs) \cite{health_interop}. In finance, without \textbf{Interoperability}, consumers need to visit multiple institutions and systems to make transactions with different networks, which are subject to fees. If networks are interconnected, fees are expected to be lower. Thus, transactions are cheaper and more other consumers can be reached, which will increase the number of transactions \cite{fin_interop}.
+
+Another angle of research may consist of investigating suitable DLT design beyond Hyperledger Fabric and Ethereum or personal DP use cases beyond healthcare and finance.
+
+\section{Limitations and Future Work}
+\label{sec:LimitationsAndFutureWork}
+
+Nevertheless, our study comes with limitations. Personal DP requirements and DLT characteristics were identified in a literature review in the field of DLT, DP healthcare and finance. Analysed DLT and DP concepts are limited to already published scientific articles and mainly focused on \textit{blockchain} and DP of \textit{personal} information. Due to the time constraints, instead of doing an in-depth analysis of a concrete use case or approach, we focused more on a breadth-first search methodology, in order to acquire broad knowledge on the domain of healthcare, finance, DP and DLT. 
+
+We limit our overview of personal DP, as well as use case specific requirements and DLT characteristics to those of particular interest in extant research on DP and DLT in the domain of healthcare and finance. The DLT characteristics and related trade-offs, as well as the DP requirements are also corroborated by multiple whitepapers of DLT designs such as Bitcoin \cite{bitcoin}, Ethereum \cite{ethereum}, or Hyperledger Fabric \cite{hyperledger} and other surveys, reviews, taxonomies, comparisons, case studies and reports. Most of the analysed research articles developed applications on Ethereum or Hyperledger Fabric, which makes this work (Hyperledger Fabric and Ethereum characteristics' suitability for personal DP in healthcare and finance) only partially generalisable to other DLT designs and use cases. 
+
+Also, the requirements discussed are based on rather simple definitions from the literature, therefore, more in-depth analysis of each individual requirements is necessary, in order to extract more valuable comparisons, suppositions and conclusions. Additionally, when we considered that a requirement is influenced by a characteristic, that does not necessarily mean that the requirement is satisfied and it is not exactly measured as to what degree it is impacted. What exact degree of influence or impact does a characteristic have on a requirement and personal DP in general, needs to be further investigated.
+
+While we analysed relationships between DLT characteristics and DP requirements, we predominantly focused on synergistic and potentially positive influences. We acknowledge that the relationships developed through the mappings might also lead to negative effects. Additionally, individual requirements can have a strong influence on each other, and the relationships between them need to be further investigated. 
+
+DLTs' application in healthcare and finance (beyond just digital currencies) are still emerging fields. There is need for researchers to develop more prototypes and proof-of-concepts to deepen the understanding and maturity of the technology in relation to its application in the discussed use cases. Many of the analysed frameworks, concepts, models and architectures need to be implemented and tested to evaluate their strengths and weaknesses.
+
+\textbf{Interoperability, Scalability} and \textbf{Compliance} remain some of the biggest challenges and turn out as an important avenue for future research in the field of DLT and DP, in order to overcome the standardisation, emergency, engagement, as well as cost reduction problems in healthcare and finance, as interoperable DLTs can increase flexibility and help leverage the benefits of different DLT designs while avoiding their drawbacks and scalable solutions allow for mass adoption and approval.
+
+%% ---------------------
+%% | / Example content |
+%% ---------------------

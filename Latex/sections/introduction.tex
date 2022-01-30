@@ -1,0 +1,49 @@
+%% LaTeX2e class for student theses
+%% sections/content.tex
+%% 
+%% Karlsruhe Institute of Technology
+%% Institute for Program Structures and Data Organization
+%% Chair for Software Design and Quality (SDQ)
+%%
+%% Dr.-Ing. Erik Burger
+%% burger@kit.edu
+%%
+%% Version 1.3.5, 2020-06-26
+
+\chapter{Introduction}
+\label{ch:Introduction}
+
+\section{Current State}
+\label{sec:currentstate}
+
+With e-health \cite{what_is_e_health}, e-finance \cite{e_finance_introduction}, cloud services, ’Internet of Things’, social media, etc. spreading and growing by the day, data exchanged, analysed or produced by intelligent devices becomes more and more difficult to trace \cite{IoT_difficult_to_trace}. It is often unknown how information is collected, how it is further processed, by whom, and for what purpose \cite{how_info_is_collected}. This kind of information is often referred to as \textit{data provenance} (DP), where "The provenance of a data item includes information about the processes and sources that lead to its creation and current representation" \cite[p.~3]{DP_categorisation_of_appr}. The purpose of provenance is to extract relatively simple explanations for the existence of some piece of data from some complex workflow of data manipulation. 
+
+With digitalisation, the concern with potential exposure of private and sensitive personal information is rising \cite{digitalisation} and with it, the significance of DP \cite{DP_whats_next}. Also, information is not only personal and private, but proprietary. Consumers should know if their data had been manipulated and how, in a network, that provides interoperability and connects actors in a secure, trustworthy and 'user friendly' way \cite{consumers_should_know}.
+
+An increasing amount of research is being done to utilise DP technologies \cite{DP_whats_next} in the fields of \textit{healthcare} \cite{health_1,health_2,health_3,health_4,health_5,consumers_should_know}, \textit{finance} \cite{finance_1,finance_2,finance_3,finance_4}, supply-chain \cite{DP_supply_chain}, cloud services \cite{health_cloud_service}, scientific research \cite{DP_e_science}, storage systems \cite{DP_storagesys}, etc. 
+
+A lot of progress has been made recently regarding personal data and its protection \cite{7_privacy_trends,ccpa,lgpd}. In European data protection law, everybody has the right to know where the organisation accountable got his data from, what the data was used for, where it was transferred to and how long it is stored, regardless of location \cite{gdpr_chap3}. However, laws and regulations alone cannot provide consumers with information about their personal data \cite{p3p_early_adopters}. The regulations created the need for tools, which can enable consumers to exercise their rights.
+
+Unfortunately, many tools failed to meet the requirements of such technology \cite{TETs_survey,security_in_theway,DP_survey}. In order for such tools to work, a combination of not only proper standards and legislation is needed, but also international adoption as well as mature and suitable technologies and architectures for their development \cite{p3p_early_adopters}. When improperly designed, DP tools can be a severe threat to the consumer and in a networked environment with a lot of actors this can be a complex and costly system to implement and manage \cite{TETs_survey}.
+
+There are tools that partially solve some of the existing problems like owning your data, knowing where it is stored and what's happening to it \cite{matomo}, others provide full access to all personal data along information flows \cite{bier2016privacyinsight} or easy-to-understand visualisation techniques \cite{comics}. However, these tools are still built in a centralised manner. While centralised databases provide advantages in terms of, for instance, maintainability, they have drawbacks in terms of their availability, performance (bottlenecks), and do not necessarily solve the issue with untrustworthiness \cite[p.~266-267]{dlt_1}.
+
+\section{Potential Solution}
+\label{sec:potentialsolution}
+
+To desire a one-size-fits-all solution is unrealistic. Recently, however, the \textit{distributed ledger technologies} (DLTs) are on the rise and steadily becoming more versatile in terms of applicable use cases \cite{dlt_2}. DLT has been developed to keep a distributed immutable ledger of financial transactions \cite{dlt_1}. The ledger can be seen as a provenance record of, for example, bitcoins; and it is therefore unsurprising that DLT could be used to record provenance in other settings. 
+
+There are many fields, which process data of sensitive and personal nature. However, in this work we will focus on the domain of \textit{healthcare} and \textit{finance} as examples of domains that, although both dealing with private or personal information, still have different goals, scope, significance, etc. For instance, \textit{healthcare} is in the public sector, while \textit{finance} is in the private; \textit{healthcare} is largely dominated by non-profit organisations, while \textit{finance} has investor-owned businesses; \textit{healthcare} payments are made by insurance companies or the government, while in \textit{finance} usually the consumer is managing his own expenses. But one thing \textit{healthcare} and \textit{finance} have in common, for example, is consumers' and patients' trust, that their personal information is protected and safe. Therefore, this can be seen as one of the most important requirements for a personal DP approach.
+
+By leveraging the global-scale computing power of distributed networks, a DLT-based DP can provide integrity, authenticity, traceability, accountability, provenance, trustworthiness, etc., through its decentralised architecture, immutable record of transactions, lack of single authority, consensus mechanisms, smart contracts, tamper-proof storage of data, etc., \cite{walmart,health_1,DP_storagesys} and, thus, solve the issue with untrustworthiness and fulfil important requirements of DP approaches.
+
+There are, however, different DLTs and they vary from each other in many ways such as their design, purpose, way of access, way of governance and so on \cite{dlt_3}. Hence, it is important to understand the characteristics, capabilities and trade-offs of individual DLTs \cite{dlt_4}, in order to determine the most suitable approaches for personal DP in the field of \textit{healthcare} and \textit{finance}. This leads us to the research question: \newline
+
+\textit{RQ: What are the characteristics of DLTs that make them suitable for personal data provenance in healthcare and finance?}
+
+\section{Outline}
+\label{sec:outline}
+
+In the next chapter \ref{ch:Fundamentals}, we take a closer look at the fundamentals and important definitions for our work. Then, in chapter \ref{ch:method} we describe the methods and approaches that we used. Chapter \ref{ch:results} presents the answers of the identified questions that lead to our \textit{RQ}, as well as mappings of different DP requirements to DLT characteristics. This is followed by a discussion in chapter \ref{ch:Discussion}, consisting of principal findings, implications for practice, implications for research, limitations and future work. Finally, we end the work with a brief conclusion in chapter \ref{ch:Conclusion}.
+
+\newpage
