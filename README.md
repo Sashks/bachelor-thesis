@@ -1,11 +1,22 @@
 # 2021-BA-Bachvarov
 
-Kollaboration mit AIFB
+Evaluation of the suitability of popular blockchain designs (Ethereum and Hyperledger Fabric) for personal data provenance in the domain of healthcare and finance
+
+
+Collaboration between:
+
+Institute for Applied Informatics and Formal Description Methods (AIFB)
+Critical Information Infrastructures (CII)
+
+	and
+
+Institute of Information Security and Dependability (KASTEL)
+Decentralized Systems and Network Services (DSN)
 
 
 ## Meeting 24.01.22 ##
 
-1. 2 Copys - Frau Hopprich
+1. 2 Copys
 
 2. 3 Signed docs
 
@@ -68,7 +79,7 @@ Kollaboration mit AIFB
 
 1. Explain how the groups were formed
 
-2. Use-Case-Tables: mark which sentances correspond to which requirement 
+2. Use-Case-Tables: mark which sentances correspond to which requirement
 
 3. Draw the links between Req-Table and Healthcare/Finance
 
@@ -80,7 +91,7 @@ Kollaboration mit AIFB
 
 7. Describe only the useful DLT characteristics and properties
 
-8. Think about the trade-offs 
+8. Think about the trade-offs
 
 
 ## Meeting 08.11.21 ##
@@ -92,9 +103,9 @@ Kollaboration mit AIFB
 
 2. Make bigger destinction between individual medical/financial requirements
 
-3. Add references in requirements. 
+3. Add references in requirements.
 
-4. Medical/Financial use case: differences and similarities 
+4. Medical/Financial use case: differences and similarities
 	- anonymity
 	- target of abuse
 	- accessibility
