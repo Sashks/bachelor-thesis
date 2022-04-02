@@ -5,13 +5,13 @@ Evaluation of the suitability of popular blockchain designs (Ethereum and Hyperl
 
 Collaboration between:
 
-Institute for Applied Informatics and Formal Description Methods (AIFB)
-Critical Information Infrastructures (CII)
+**Institute for Applied Informatics and Formal Description Methods (AIFB) -
+Critical Information Infrastructures (CII)**
 
-	and
+and
 
-Institute of Information Security and Dependability (KASTEL)
-Decentralized Systems and Network Services (DSN)
+**Institute of Information Security and Dependability (KASTEL) -
+Decentralized Systems and Network Services (DSN)**
 
 
 ## Meeting 24.01.22 ##
